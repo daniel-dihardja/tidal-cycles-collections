@@ -1,0 +1,50 @@
+
+hush
+
+
+-- Beat with toms
+
+d1
+$ every 6 (chop 4)
+$ whenmod 8 6 (jux (iter 8))
+$ stack [
+    sometimes (stutWith "<2 3>" (1/8) ((|* gain 0.9).(|* hpf 1.2)))
+        $ sometimesBy 0.6 (fast 4)
+        $ loopAt 2
+        $ chop 4
+        $ off 0.5 (# speed "-2")
+        $ s "[hts:9]/4 [pec<4 5 7 8>/2,snr:7/3]"
+        # gain 1
+        # hpf 600
+        # pan (range 0.4 0.6 $ slow 3 sine)
+        # room 0.2,
+    sometimes (# speed "3")
+        $ every 2 (fast 2)
+        $ s "[tom(3,8),k2(3,8)]"
+        # n "<0 1 12>"
+        # gain 0.9
+        # hpf 90
+        # lpf (range 2500 500 $ slow 7 sine)
+        # pan 0.5
+        # legato "<0.75 1.5>",
+    s "cym/2"
+        # gain 0.7
+        # n 3
+        # hpf 3500
+        # lpf 20000
+        # room 0.3
+        # sz 0.5
+        # pan (slow 7 $ range 0.45 0.55 sine),
+    sometimesBy 0.3 (fast 2) $ "[hts]*8"
+        # n "<4 9>"
+        # gain 0.8
+        # hpf 6000
+        # lpf 12000
+        # pan (slow 5 $ range 0.65 0.35 sine)
+        # speed 0.5
+        # room 0.3
+]
+# cps (140/240)
+# orbit 1
+
+hush

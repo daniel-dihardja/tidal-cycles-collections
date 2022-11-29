@@ -1,0 +1,168 @@
+let m p = (const $s "~") p
+
+d2
+$ whenmod 8 6 (# speed "1.1 1.3 1.5 1.1")
+$ sometimes (|* speed "-1")
+$ every 6 (# crush 4)
+$ whenmod 6 4 (# coarse 3)
+$ whenmod 6 5 (hurry 2)
+$ stack[
+    whenmod 5 4 (fast 2)
+    $ whenmod 7 5 (slow 2)
+    $ fast 4
+    $ s "pc2" # n (irand 16 + 8) # hpf 550 # legato (range 0.2 1 rand) # room 0.3 # gain 1 # speed "0.5 1" # delay 0.2 # cut 11
+]
+# cps(133/240)
+# orbit 1
+
+hush
+
+xfadeIn 1 8
+
+d1
+$ whenmod 8 7 (# crush 6)
+$ whenmod 16 15 (hurry 2)
+$ stack[
+  s "pc2(3,8)" # n 2 # room 0.2,
+  s "{pc2~~}%2" # n 14 # room 0.2,
+  whenmod 5 4 ((fast "4 2").(|* gain 0.9)) $ s "k2*4" # n 5 # hpf 30,
+  fast 4 $ s "~hts*<1 1 4 1>" # n 2 # room 0.2 # gain 1 # speed 0.2 # hpf 6000 # ctf 1000 # orbit 4,
+  fast 2 $ s "~ sn3" # n 10 # hpf 400 # room 0.2 # gain 1,
+  s "hts*16" # n 2 # hpf 5000 # gain 0.8 |* gain "[0.8 0.9 1 0.9]*4" # orbit 4
+]
+# cps(133/240)
+# orbit 1
+
+hush
+
+
+
+
+
+
+d1
+-- $ qtrigger 1
+$ whenmod 8 7 (rev)
+$ stack[
+  sometimes (|* speed "-1") $ s "sn3*16" # n (16 + irand 4) # hpf 800 # legato (range 0.2 1 rand) # room 0.3 # cut 111 # gain 0.9 # speed 0.5,
+  whenmod 8 7 ((# hpf 240)) $ s "kcks*4" # gain 0.9 # cut 182 # n 1 # lpf 1000 # orbit 2,
+  s "[~bs2]*4" # n 4 # cut 1313 # orbit 3 # hpf 60 # gain 0.7,
+  s "{pc2~~~~~~}%8" # n "16 15 20 25" # hpf 400 # room 0.2 # orbit 1 # gain 0.9,
+  slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4,
+  s "[~snr]*2" # n "[7,10]" # gain 0.9 # hpf 400 # room 0.2 # orbit 1,
+  s "[~hts]*4" # n 2 # hpf 6000 # room 0.2 # orbit 4 # gain 0.8,
+  striate 32 $  s "syn2(3,8)" # n "<18 12>" # hpf 500 # speed "<0.5 1>" # room 0.3 # gain 0.7 # cut 152 # orbit 1
+]
+# cps(140/240)
+# distort 0.1
+
+hush
+
+
+-- TODO:
+-- create a base groove with kick, bass, riff, snr and hat.
+-- have a changing lead pattern on top of it
+
+
+d2
+$ whenmod 8 7 (#crush 4)
+$ stack[
+  -- whenmod 8 7 (fast "1 1 2 4".(# hpf 120)) $ s "kcks*4" # n 1 # orbit 3 # lpf 1000,
+  s "bs(3,8)" # n 2 # orbit 3 # cut 111 # gain 0.5,
+  -- s "{pc2~~~~~~}%8" # n 11 # room 0.2 # hpf 300 # orbit 1,
+  s "{pc2~~~~}%8" # n "<1 4>" # hpf 200 # orbit 1 # gain 1 # speed 1,
+  -- s "{tom~~}%2" # n "8" # hpf 100 # orbit 1 # gain 1.2 # distort 0.1,
+  s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
+  s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.5,
+  s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.9,
+  -- s "pc2(5,12)" # n "7" # speed 2 # hpf 100 # orbit 1 # room 0.2
+  -- every 4 (fast "4 8") $ s "snr*8" # n "<2 3>" # speed (range 4 0.4 $ slow 4 sine) # legato 0.5 # hpf 400 # orbit 1 # gain 1.1,
+  slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9
+  -- s "syn2" # n 5 # orbit 1 # hpf 400 # gain 0.5 # speed "[0.5,1]" # room 0.2,
+  -- s "fx2(3,8)" # n "20 16" # cut 675 # orbit 1 # hpf 400 # room 0.2 # gain 0.9
+]
+# cps(140/240)
+
+hush
+
+
+d2 silence
+$ stack[
+  every 4 (fast "4 8") $ slow 2 $ s "snr*8 ~" # n "<2 3>" # speed (range 4 0.4 $ slow 3 sine) # legato 0.5 # hpf 400 # orbit 1 # gain 1.2
+]
+# cps(140/240)
+
+hush
+
+
+-- foundation groove !
+d1
+$ whenmod 8 7 (# crush 6)
+$ stack[
+    whenmod 8 7 (fast "1 1 2 4".(# hpf 120)) $ s "kcks*4" # n 1 # orbit 2 # lpf 1000,
+    s "bs(3,8)" # n 2 # orbit 3 # cut 111 # gain 0.5,
+    s "{pc2~~~~~~}%4" # n 1 # hpf 200 # orbit 1 # gain 1.25 # room 0.1 # speed 1,
+    whenmod 8 7 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
+    s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.5,
+    s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.9,
+    slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9
+]
+# cps(140/240)
+
+hush
+
+
+
+
+
+
+
+
+
+
+
+
+d1
+$ whenmod 8 7 (chop "4 8".(#crush 4).(# hpf 300))
+$ stack[
+  s "fx2(3,8)" # n "20 16" # cut 112 # orbit 1 # hpf 400 # gain 0.9,
+  s "tom" # orbit 1 # hpf 300,
+  s "k2*4" # orbit 3,
+  slow 2 $ s "pc2" <| n (run "8 16 16 32" + 10) # hpf 300 # orbit 1,
+  s "{pc2~~}%8" # n 10 # hpf 400 # orbit 1
+]
+# cps(140/240)
+# orbit 1
+
+hush
+
+
+
+hush
+
+
+hush
+
+
+let pats =
+      [
+        ("base",
+            whenmod 8 7 (# crush 6)
+            $ stack [
+                whenmod 8 7 (fast "1 1 2 4".(# hpf 120)) $ s "kcks*4" # n 1 # orbit 3 # lpf 1000,
+                s "bs(3,8)" # n 2 # orbit 3 # cut 111 # gain 0.5,
+                s "{pc2~~~~~~}%4" # n 1 # hpf 200 # orbit 1 # gain 1.25 # room 0.1 # speed 1,
+                whenmod 8 7 (fast "2 4") $ s "~sn3~sn3" # n 3 # hpf 400 # orbit 1 # gain 1.2 # room 0.2,
+                s "hts*16" # n 2 # hpf 6000 # orbit 4 # gain 0.5,
+                s "[~hts]*4" # hpf 6000 # orbit 4 # room 0.2 # gain 0.9,
+                slow 8 $ s "cym" # hpf 6000 # room 0.2 # orbit 4 # gain 0.9
+            ]
+        )
+      ]
+in
+d1
+-- $ qtrigger 1
+$ ur 24 "base" pats []
+# cps(140/240)
+
+hush

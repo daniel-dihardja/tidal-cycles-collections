@@ -1,0 +1,17 @@
+let m p = (const $s "~") p
+
+d1
+$ qtrigger 1
+$ stack [
+    brak $ slow 2 $ s "cp*1 cp*2 cp*3 cp*4" # n 1 # room 0.2  # cut 111 # hpf 400 # gain 0.8,
+    s "~snr2" # n 12 # hpf 600 # gain 1.05,
+    every 7 ((fast "32 8").(|* gain 0.75)) $ s "k3" # n 7 # lpf 1000 # cut 111,
+    s "{ekt:5~~}%4" # hpf 60 # gain 0.7,
+    s "gc1*<16 16 16 2 2>" # n "<10 11 7>" # hpf 400 # room 0.3 # gain 1,
+    sometimes (rev) $ brak $ s "fx2*<16 32 4>" # n "<10 13 14>" # hpf 600 # room 0.2 # cut 333 # delay 0.2 # distort 0.2,
+    s "syn2/2" # n 3 # gain 0.6 # hpf 600 # room 0.2 # lpf 3000
+]
+# cps (140/240)
+# orbit 1
+
+hush

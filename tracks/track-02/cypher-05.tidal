@@ -1,0 +1,106 @@
+d1
+$ whenmod 8 7 ((# crush 4).(# speed "1 .. 3"))
+$ stack[
+  loopAt 2 $ s "fxr" # n "<29 28>" # hpf 300 # gain 0.6 # orbit 1,
+  -- whenmod 4 3 (fast 2) $ s "hts*16" # n 4 # hpf 3000 # legato 0.25 # orbit 4,
+  chop 32 $ s "gl" # n "<11>" # gain 1.2 # begin 0 # end 0.25 # hpf 300 # orbit 1,
+  loopAt 4 $ s "bl" # n 7 # gain 1.1 # cut 121,
+  -- whenmod 4 3 (chunk 2 (hurry 2)) $ chop 32 $ s "dl" # n "<3 4>" # begin "<0 0.75>" # end "<0.25 1>" # gain 0.9 # orbit 1,
+  -- s "[~cp]" # n 4 # gain 1.2 # room 0.2 # hpf 300 # orbit 1,
+  -- slow 4 $ s "cym" # room 0.2 # gain 0.8 # hpf 1000 # orbit 4,
+  -- s "gc1*16" # n (range 16 32 rand) # gain 1 # hpf 600 # room 0.2 # speed 2 # orbit 4,
+  loopAt 2 $ s "rbt" # n "<9 16>/4" # hpf 200 # gain 1.2 # speed "<1 <0.5 2>>" # room 0.2 # orbit 1
+  -- loopAt 4 $ s "syl" # n 30 # hpf 200 # gain 1 # room 0.2 # orbit 1
+]
+# cps(80/240)
+
+hush
+
+let pats =
+     [
+        ("marker",
+            stack [
+                slow 2 $ s "k2" # orbit 1,
+                slow 2 $ s "k2" # orbit 2,
+                slow 2 $ s "k2" # orbit 3,
+                slow 2 $ s "k2" # orbit 4
+            ]
+        ),
+        ("a",
+            whenmod 8 7 ((# crush 4).(# speed "1 .. 3"))
+            $ stack [
+                -- loopAt 2 $ s "fxr" # n "<29 28>" # hpf 300 # gain 0.6 # orbit 1,
+                -- whenmod 4 3 (fast 2) $ s "hts*16" # n 4 # hpf 3000 # legato 0.25 # orbit 4,
+                -- chop 32 $ s "gl" # n "<11>" # gain 1.2 # begin 0 # end 0.25 # hpf 300 # orbit 1,
+                -- loopAt 4 $ s "bl" # n 7 # gain 0.55 # cut 121 # orbit 3,
+                -- whenmod 4 3 (chunk 2 (hurry 2)) $ chop 32 $ s "dl" # n "<3 4>" # begin "<0 0.75>" # end "<0.25 1>" # gain 0.9 # orbit 1,
+                -- s "[~cp]" # n 4 # gain 1.2 # room 0.2 # hpf 300 # orbit 1,
+                -- slow 4 $ s "cym" # room 0.2 # gain 0.8 # hpf 1000 # orbit 4,
+                -- s "gc1*16" # n (range 16 32 rand) # gain 1 # hpf 600 # room 0.2 # speed 2 # orbit 4,
+                loopAt 2 $ s "rbt" # n "<9 16>/4" # hpf 300 # gain 1 # speed "<1>" # room 0.2 # orbit 1
+             ]
+        ),
+        ("b",
+            whenmod 8 7 ((# crush 4).(# speed "1 .. 3"))
+            $ stack [
+                loopAt 2 $ s "fxr" # n "<~ 28>" # hpf 300 # gain 0.6 # orbit 1,
+                -- whenmod 4 3 (fast 2) $ s "hts*16" # n 4 # hpf 3000 # legato 0.25 # orbit 4,
+                -- chop 32 $ s "gl" # n "<11>" # gain 1.2 # begin 0 # end 0.25 # hpf 300 # orbit 1,
+                loopAt 4 $ s "bl" # n 7 # gain 0.55 # cut 121 # orbit 3,
+                -- whenmod 4 3 (chunk 2 (hurry 2)) $ chop 32 $ s "dl" # n "<3 4>" # begin "<0 0.75>" # end "<0.25 1>" # gain 0.9 # orbit 1,
+                -- s "[~cp]" # n 4 # gain 1.2 # room 0.2 # hpf 300 # orbit 1,
+                -- slow 4 $ s "cym" # room 0.2 # gain 0.8 # hpf 1000 # orbit 4,
+                -- s "gc1*16" # n (range 16 32 rand) # gain 1 # hpf 600 # room 0.2 # speed 2 # orbit 4,
+                loopAt 2 $ s "rbt" # n "<9 16>/2" # hpf 300 # gain 1 # speed "<1 0.5>" # room 0.2 # orbit 1 # cut 5541
+             ]
+        ),
+        ("c",
+            whenmod 8 7 ((# crush 4).(# speed "1 .. 3"))
+            $ stack [
+                loopAt 2 $ s "fxr" # n "<29 28>" # hpf 300 # gain 0.6 # orbit 1,
+                whenmod 4 3 (fast 2) $ s "hts*16" # n 4 # hpf 3000 # legato 0.25 # orbit 4 # gain 0.6,
+                -- chop 32 $ s "gl" # n "<11>" # gain 1.2 # begin 0 # end 0.25 # hpf 300 # orbit 1,
+                loopAt 4 $ s "bl" # n 7 # gain 0.55 # cut 121 # orbit 3,
+                whenmod 4 3 (chunk 2 (hurry 2)) $ chop 32 $ s "dl" # n "<3 4>" # begin "<0 0.75>" # end "<0.25 1>" # gain 0.9 # orbit 1,
+                -- s "[~cp]" # n 4 # gain 1.2 # room 0.2 # hpf 300 # orbit 1,
+                slow 4 $ s "cym" # room 0.2 # gain 0.6 # hpf 1000 # orbit 4,
+                -- s "gc1*16" # n (range 16 32 rand) # gain 1 # hpf 600 # room 0.2 # speed 2 # orbit 4,
+                loopAt 2 $ s "rbt" # n "<9 16>/2" # hpf 300 # gain 1 # speed "<1 0.5>" # room 0.2 # orbit 1 # cut 5541
+             ]
+        ),
+        ("d",
+            whenmod 8 7 ((# crush 4).(# speed "1 .. 3"))
+            $ stack [
+                loopAt 2 $ s "fxr" # n "<29 28>" # hpf 300 # gain 0.6 # orbit 1,
+                whenmod 4 3 (fast 2) $ s "hts*16" # n 4 # hpf 3000 # legato 0.25 # orbit 4 # gain 0.6,
+                -- chop 32 $ s "gl" # n "<11>" # gain 1.2 # begin 0 # end 0.25 # hpf 300 # orbit 1,
+                loopAt 4 $ s "bl" # n 7 # gain 0.55 # cut 121 # orbit 3,
+                whenmod 4 3 (chunk 2 (hurry 2)) $ chop 32 $ s "dl" # n "<3 4>" # begin "<0 0.75>" # end "<0.25 1>" # gain 0.9 # orbit 1,
+                -- s "[~cp]" # n 4 # gain 1.2 # room 0.2 # hpf 300 # orbit 1,
+                slow 4 $ s "cym" # room 0.2 # gain 0.6 # hpf 1000 # orbit 4,
+                -- s "gc1*16" # n (range 16 32 rand) # gain 0.65 # hpf 600 # room 0.2 # speed 2 # orbit 4,
+                loopAt 2 $ s "rbt" # n "<9 16>/2" # hpf 300 # gain 1 # speed "<1 0.5>" # room 0.2 # orbit 1 # cut 5541
+             ]
+        ),
+        ("e",
+            whenmod 8 7 ((# crush 4).(# speed "1 .. 3"))
+            $ stack [
+                loopAt 2 $ s "fxr" # n "<29 28>" # hpf 300 # gain 0.6 # orbit 1,
+                whenmod 4 3 (fast 2) $ s "hts*16" # n 4 # hpf 3000 # legato 0.25 # orbit 4 # gain 0.5,
+                -- chop 32 $ s "gl" # n "<11>" # gain 1.2 # begin 0 # end 0.25 # hpf 300 # orbit 1,
+                loopAt 4 $ s "bl" # n 7 # gain 0.55 # cut 121 # orbit 3,
+                -- whenmod 4 3 (chunk 2 (hurry 2)) $ chop 32 $ s "dl" # n "<3 4>" # begin "<0 0.75>" # end "<0.25 1>" # gain 0.9 # orbit 1,
+                -- s "[~cp]" # n 4 # gain 1.2 # room 0.2 # hpf 300 # orbit 1,
+                slow 4 $ s "cym" # room 0.2 # gain 0.6 # hpf 1000 # orbit 4
+                -- s "gc1*16" # n (range 16 32 rand) # gain 0.65 # hpf 600 # room 0.2 # speed 2 # orbit 4,
+                -- loopAt 2 $ s "rbt" # n "<9 16>/2" # hpf 200 # gain 1 # speed "<1 0.5>" # room 0.2 # orbit 1 # cut 5541
+             ]
+        )
+     ]
+in
+d1
+$ qtrigger 1
+$ ur 28 "marker a b c d e ~" pats []
+# cps (80/240)
+
+hush

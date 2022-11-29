@@ -1,0 +1,44 @@
+
+
+
+hush
+
+d1
+$ stack[
+  fast "2 4" $ s "gc1*4" # n "<1 <2 3>>" # speed "<2<0.5 1 2>>" # gain 0.67 # ctf 5000 # hpf 300 # orbit 1 # room 0.2,
+  s "kcks(2,5)" # n 1 # orbit 2 # gain 0.62,
+  s "{pc2 ~~~~~~}%8" # n 1 # orbit 1 # hpf 300 # gain 0.7 # room 0.1,
+  sometimes (stutWith 2 (0.125)(|* gain 0.65)) $ s "[~sn3]*2" # orbit 1 # hpf 200 # n 3 # gain 0.75,
+  fast "2 4" $ s "<pc2 sn3 gc1>*4" # n "<5 8 4> <4 5 7>"  # orbit 1 # room 0.2 # hpf 400 # gain 0.6
+]
+# cps(140/240)
+
+hush
+
+
+
+let pats =
+      [
+        ("marker",
+            slow 4 $ s "k2" # orbit 2
+        ),
+        ("a",
+            whenmod 8 6 (#crush 4)
+            $ stack[
+              -- fast "2 4" $ s "gc1*4" # n "<1 <2 3>>" # speed "<2 0.5 1 2>" # gain 0.67 # ctf 5000 # hpf 300 # orbit 1 # room 0.2,
+              whenmod 16 15 (# hpf 300) $ s "kcks(2,5)" # n 1 # orbit 2 # gain 0.62,
+              s "{pc2 ~~~~~~}%8" # n 1 # orbit 1 # hpf 300 # gain 0.65 # room 0.1,
+              sometimes (stutWith 2 (0.125)(|* gain 0.65)) $ s "[~sn3]*2" # orbit 1 # hpf 200 # n 3 # gain 0.75,
+              fast "2 4" $ s "<fx2 gc1>*4" # n "<5 8 4> <4 5 7>" # speed "0.2 <0.5 -1>" # legato 0.3 # orbit 1 # room 0.2 # hpf 400 # gain 0.6,
+              s "bs2~bs2~bs2" # up "0 0 <3 7>" # n 2 # cut 678 # orbit 3 # gain 0.6,
+              slow 8 $ s "cym" # orbit 4 # hpf 3000 # gain 0.6 # room 0.2,
+              whenmod 8 7 (fast 2) $ sometimesBy 0.3 (stutWith 2 (0.125)(|* gain 0.8)) $ s "[~sn3]*2" # n 2 # orbit 1 # room 0.2 # gain 0.7
+            ]
+        )]
+in
+d1
+$ ur 16 "a" pats []
+# cps(140/240)
+
+
+hush

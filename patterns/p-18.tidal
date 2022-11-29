@@ -1,0 +1,57 @@
+
+
+hush
+
+-- Set foundation
+
+d1
+$ every 16 (# hpf 300)
+$ every 6 (chop 4)
+$ every 5 (# speed "1.1 1.2 1.1 1.3")
+$ whenmod 8 6 (jux (iter 8))
+$ stack [
+    sometimes (stutWith "<2 3>" (1/8) (|* gain 0.85).(|*hpf 1.2))
+        $ off 0.5 (# speed "-2")
+        $ sometimesBy 0.6 (fast 4)
+        $ loopAt 2
+        $ chop 4
+        $ s "[hts:9]/4[pec:<4 6 5>/2, snr:7/3]"
+        # gain 0.7
+        # hpf 500
+        # room 0.2
+        # pan (slow 7 $ range 0.6 0.4 sine),
+    sometimes (# speed "-2")
+        $ s "~~~~~tom/2~~"
+        # n "<10 12 11>"
+        # speed (range 1 2 $ slow 2 sine)
+        # gain 0.9
+        # hpf 90
+        # lpf (range 3000 500 $ slow 7 sine)
+        # pan 0.5,
+    sometimesBy 0.2 (stutWith (choose [2, 3]) (choose [0.125, 0.0625]) (|* gain 0.85).(|* hpf 1.5))
+        -- $ off 0.5 ((# n "1 2 10").(|* gain 0.9).(|* hpf 1.2))
+        $ s "[kcks:6(3,8)]"
+        # gain 0.8
+        # lpf 3000
+        # hpf 40
+        # pan 0.5,
+    s "cym/4"
+        # gain 0.7
+        # n 6
+        # hpf 3500
+        # lpf 20000
+        # room 0.3
+        # sz 0.5
+        # pan (slow 7 $ range 0.45 0.55 sine),
+    sometimes (chunk 2 (fast 2))
+        $ degradeBy 0.6
+        $ s "[hts]*8"
+        # n "<3 4 11>"
+        # gain 0.6
+        # hpf 6000
+        # lpf 12000
+        # pan (slow 5 $ range 0.35 0.65 sine)
+        # room 0.3
+]
+# cps (140/240)
+# orbit 1

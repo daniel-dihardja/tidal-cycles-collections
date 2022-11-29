@@ -1,0 +1,62 @@
+d1
+$ stack[
+  slow 8 $ s "am" # n 29 # orbit 1 # room 0.2 # hpf 1000 # gain 0.8,
+  whenmod 64 16 (# hpf 120) $ slow 2 $ s "bl" # n 4  # cut 111 # orbit 3 # gain 0.4 # hpf 60,
+  slow 4 $ s "fxg" # n "<11 13>" # orbit 1 # room 0.2 # hpf 400 # gain 0.6 # cut 56,
+  whenmod 64 8 (# gain 0.65) $ slow 2 $ s "rbt" # n 17 # orbit 1 # room 0.2 # hpf 400 # gain 0 # cut 888,
+  whenmod 64 32 (# gain 0.62) $ slow 2 $ s "gl" # n "<10 11 10 9>" # orbit 1 # hpf 60 # gain 0 # cut 777,
+  slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+]
+# cps(140/240)
+# orbit 0
+
+let pats =
+     [
+        ("a",
+            stack [
+                slow 8 $ s "am" # n 29 # orbit 1 # room 0.2 # hpf 1000 # gain 0.8 # cut 171
+            ]
+        ),
+        ("b",
+            stack [
+                slow 8 $ s "am" # n 29 # orbit 1 # room 0.2 # hpf 1000 # gain 0.8 # cut 171,
+                slow 2 $ s "bl" # n 4  # cut 111 # orbit 3 # gain 0.4 # hpf 60,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+            ]
+        ),
+        ("c",
+            stack [
+                slow 8 $ s "am" # n 29 # orbit 1 # room 0.2 # hpf 1000 # gain 0.8 # cut 171,
+                slow 2 $ s "bl" # n 4  # cut 111 # orbit 3 # gain 0.4 # hpf 60,
+                slow 4 $ s "fxg" # n "<11 13>" # orbit 1 # room 0.2 # hpf 400 # gain 0.55 # cut 56,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7,
+                whenmod 16 15 (chop "16".(# crush 4).(# gain 0.6).(# hpf "3000 30")) $ s "gl" # n "9" # orbit 1 # hpf 60 # gain 0 # cut 777
+            ]
+        ),
+        ("d",
+            stack [
+                slow 8 $ s "am" # n 29 # orbit 1 # room 0.2 # hpf 1000 # gain 0.8 # cut 171,
+                slow 2 $ s "bl" # n 4  # cut 111 # orbit 3 # gain 0.4 # hpf 60,
+                slow 4 $ s "fxg" # n "<11 13>" # orbit 1 # room 0.2 # hpf 400 # gain 0.6 # cut 56,
+                slow 2 $ s "rbt" # n 17 # orbit 1 # room 0.2 # hpf 400 # gain 0.65 # cut 888,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7,
+                whenmod 16 15 ((# crush 4).(# gain 0.6).(# hpf "3000 .. 30")) $ s "gl" # n "9" # orbit 1 # hpf 60 # gain 0 # cut 777
+            ]
+        ),
+        ("e",
+            stack [
+                slow 8 $ s "am" # n 29 # orbit 1 # room 0.2 # hpf 1000 # gain 0.8 # cut 171,
+                slow 2 $ s "bl" # n 4  # cut 111 # orbit 3 # gain 0.4 # hpf 60,
+                slow 4 $ s "fxg" # n "<11 13>" # orbit 1 # room 0.2 # hpf 400 # gain 0.6 # cut 56,
+                slow 2 $ s "rbt" # n 17 # orbit 1 # room 0.2 # hpf 400 # gain 0 # cut 888,
+                whenmod 8 6 (# crush 4) $ slow 2 $ s "gl" # n "<10 11 9 11>" # orbit 1 # hpf 60 # gain 0.6 # cut 777,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+            ]
+        )
+     ]
+in
+d1
+$ ur 64 "b c e e" pats []
+# cps(140/240)
+
+hush

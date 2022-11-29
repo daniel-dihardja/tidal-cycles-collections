@@ -1,0 +1,101 @@
+-- key: B
+d1
+$ stack[
+  loopAt 4 $ chop 32 $ s "drl" # n 7 # cut 781 # orbit 1 # hpf 400 # begin 0.75 # end 1 # room 0.2 # gain 0.6,
+  loopAt 8 $ s "syl" # n "<37 36>" # orbit 1 # hpf 600 # room 0.2 # gain 0.65 # cut 221 # ctf 2000,
+  chop 32 $ fast "1 1 1 2" $ s "gl" # orbit 1# speed "1" # begin 0.5 # end 0.75 # cut 111 # n 0 # orbit 1 # hpf 300 # gain 0.7,
+  whenmod 4 3 (# crush "6 .. 4") $ whenmod 8 7 ((# hpf "30 .. 600")) $ chop 32 $ s "dl" # n "5" # cut 141 # begin 0.5 # end 0.75 # orbit 1 # gain 0.65,
+  s "rbt" # n 5 # cut 261 # orbit 1 # gain 0 # room 0.2 # hpf 200,
+  slow 2 $ s "fxm" # n "<2 3>" # orbit 1 # hpf 600 # room 0.2 # gain 0.65 # cut 651,
+  slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+]
+# cps(130/240)
+# orbit 0
+
+hush
+
+
+let pats =
+     [
+        ("marker",
+            stack [
+                slow 4 $ s "k2" # orbit 1,
+                slow 4 $ s "k2" # orbit 2,
+                slow 4 $ s "k2" # orbit 3,
+                slow 4 $ s "k2" # orbit 4
+            ]
+        ),
+        ("a",
+            whenmod 8 7 (# crush "6 .. 4")
+            $ stack [
+                slow 4 $ s "drl" # n 7 # cut 781 # orbit 1 # hpf 400 # room 0.2 # gain 0.6,
+                slow 4 $ s "fxm" # n "<4 3>" # orbit 1 # hpf 600 # room 0.2 # gain 0.6 # cut 651
+            ]
+        ),
+        ("b",
+            whenmod 8 7 (# crush "6 .. 4")
+            $ stack [
+                slow 4 $ s "drl" # n 7 # cut 781 # orbit 1 # hpf 400 # room 0.2 # gain 0.6,
+                slow 4 $ s "fxm" # n "<4 1>" # orbit 1 # hpf 600 # room 0.2 # gain 0.57 # cut 651,
+                slow 4 $ s "syl" # n "<37>" # orbit 1 # hpf 600 # room 0.2 # gain 0.6 # cut 221 # ctf 2000,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+            ]
+        ),
+        ("c",
+            whenmod 8 7 (# crush "6 .. 4")
+            $ stack [
+                slow 4 $ s "drl" # n 7 # cut 781 # orbit 1 # hpf 400 # room 0.2 # gain 0.6,
+                slow 4 $ s "fxm" # n "<4 1>" # orbit 1 # hpf 600 # room 0.2 # gain 0.57 # cut 651,
+                slow 4 $ s "syl" # n "<38>" # orbit 1 # hpf 600 # room 0.2 # gain 0.6 # cut 221 # ctf 2000,
+                -- slow 2 $ chop 16 $ s "rbt" # n "<3 4>" # cut 261 # orbit 1 # gain 0.6 # room 0.2 # hpf 300,
+                chop 4 $ s "gl" # n 0 # orbit 1 # speed "1" # begin 0 # end 0.25 # cut 111 # orbit 1 # hpf 300 # gain 0.55,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+            ]
+        ),
+        ("d",
+            whenmod 8 7 (# crush "6 .. 4")
+            $ stack [
+                slow 4 $ s "drl" # n 7 # cut 781 # orbit 1 # hpf 400 # room 0.2 # gain 0.4,
+                slow 4 $ s "fxm" # n "<2 1>" # orbit 1 # hpf 600 # room 0.2 # gain 0.57 # cut 651,
+                slow 4 $ s "syl" # n "<37>" # orbit 1 # hpf 600 # room 0.2 # gain 0.6 # cut 221 # ctf 2000,
+                -- slow 2 $ chop 16 $ s "rbt" # n "<3 4>" # cut 261 # orbit 1 # gain 0.65 # room 0.2 # hpf 200,
+                whenmod 4 3 (chunk 4 (hurry 2)) $ chop 4 $ s "gl" # orbit 1 # speed "1" # begin 0.5 # end 0.75 # cut 111 # n 0 # orbit 1 # hpf 300 # gain 0.55,
+                whenmod 4 3 (# crush "6 .. 4") $ whenmod 8 7 ((# hpf "30 .. 600")) $ chop 32 $ s "dl" # n "5" # cut 141 # begin "<0 0.25 0.5>" # end "<0.25 0.5 0.75>" # orbit 1 # gain 0.6,
+                slow 4 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+            ]
+        ),
+        ("e",
+            whenmod 8 7 (# crush "6 .. 4")
+            $ stack [
+                slow 4 $ s "drl" # n 7 # cut 781 # orbit 1 # hpf 400 # room 0.2 # gain 0.6,
+                slow 4 $ s "fxm" # n "<4 1>" # orbit 1 # hpf 600 # room 0.2 # gain 0.57 # cut 651,
+                slow 4 $ s "syl" # n "<38>" # orbit 1 # hpf 600 # room 0.2 # gain 0.6 # cut 221 # ctf 2000,
+                -- slow 2 $ chop 16 $ s "rbt" # n "<3 4>" # cut 261 # orbit 1 # gain 0.65 # room 0.2 # hpf 200,
+                whenmod 4 3 (chunk 4 (hurry 2)) $ chop 4 $ s "gl" # orbit 1 # speed "1" # begin 0.5 # end 0.75 # cut 111 # n 0 # orbit 1 # hpf 300 # gain 0.55,
+                whenmod 4 3 (# crush "6 .. 4") $ whenmod 8 7 ((chunk 2 (hurry 2)).(# hpf "30 .. 600")) $ chop 32 $ s "dl" # n "5" # cut 141 # begin "<0.5 0.75>" # end "<0.75 1>" # orbit 1 # gain 0.6,
+                slow 4 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+            ]
+        ),
+        ("f",
+            whenmod 8 7 (# crush "6 .. 4")
+            $ stack [
+                slow 4 $ s "drl" # n 7 # cut 781 # orbit 1 # hpf 400 # room 0.2 # gain 0.6,
+                slow 4 $ s "fxm" # n "<4 1>" # orbit 1 # hpf 600 # room 0.2 # gain 0.57 # cut 651,
+                slow 4 $ s "syl" # n "<37>" # orbit 1 # hpf 600 # room 0.2 # gain 0.6 # cut 221 # ctf 2000,
+                -- slow 2 $ chop 16 $ s "rbt" # n "<3 4>" # cut 261 # orbit 1 # gain 0.65 # room 0.2 # hpf 200,
+                -- whenmod 4 3 (chunk 4 (hurry 2)) $ chop 4 $ s "gl" # orbit 1 # speed "1" # begin 0.5 # end 0.75 # cut 111 # n 0 # orbit 1 # hpf 300 # gain 0.6,
+                -- whenmod 4 3 (# crush "6 .. 4") $ whenmod 8 7 ((chunk 2 (hurry 2)).(# hpf "30 .. 600")) $ chop 32 $ s "dl" # n "5" # cut 141 # begin "<0.5 0.75>" # end "<0.75 1>" # orbit 1 # gain 0.6,
+                slow 4 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+            ]
+        )
+     ]
+in
+d1
+$ qtrigger 1
+-- $ ur 80 "marker a b c d e d e f ~" pats []
+$ ur 48 "a b c d e f" pats []
+-- $ ur 16 "d" pats []
+# cps (140/240)
+
+
+hush

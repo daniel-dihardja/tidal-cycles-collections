@@ -1,0 +1,32 @@
+s0.initImage('http://localhost:8080/fish-01.png')
+src(o0)
+  .layer(src(o0).scale(.99))
+  .layer(src(s0).scale(()=> 0.4 + a.fft[0]*0.02).repeat(2,2))
+  .contrast(3)
+  .color(.9,.2,.1)
+  // .invert(.1)
+  .contrast(2.5)
+  .scale(1)
+  .kaleid(1)
+  .scrollX(.1, .01)
+  .out(o0)
+
+
+a.hide()
+
+hush()
+
+
+s0.initImage('http://localhost:8080/fish-01.png')
+src(o0)
+  .layer(src(o0).scale(.99))
+  .layer(src(s0).scale(()=> 0.8 + a.fft[0]*0.03).repeat(2,2))
+  .contrast(3)
+  .color(.8,.2,.1)
+  .rotate(.3, .1)
+  // .invert(.1)
+  .contrast(2.5)
+  .scale(1)
+  .kaleid(1)
+  // .scrollX(.1, .01)
+  .out(o0)

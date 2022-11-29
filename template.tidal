@@ -1,0 +1,17 @@
+d1
+$ whenmod 4 3 (# crush 6)
+$ stack[
+  -- s "k3" # orbit 1,
+  -- s "bl" # orbit 2,
+  -- chop 16 $ s "dl" # orbit 3 # begin 0 # end 0.25 # hpf 30,
+  -- chop 16 $ s "gl" # orbit 4 # begin 0 # end 0.25 # hpf 30,
+  -- loopAt 2 $ s "rbt" # orbit 5 # hpf 30,
+  -- loopAt 2 $ s "fxm" # n "<1 2>" # orbit 6,
+  -- s "~sn3~sn3" # orbit 7 # hpf 30
+  -- s "{pc2~~~~~~}%8" # orbit 7 # hpf 100,
+  -- s "hts*16" # orbit 8 # hpf 300
+  -- s "[~hts]*4" # orbit 8 # hpf 300
+  -- slow 4 $ s "cym" # orbit 8
+  -- s "drl" # orbit 9
+]
+# cps(140/240)

@@ -1,0 +1,24 @@
+let m p = (const $s "~") p
+
+d1
+$ every 7 (jux(rev))
+$ every 5 (# coarse 2)
+$ whenmod 8 5 (# crush 6)
+$ whenmod 7 6 (superimpose (rev))
+$ whenmod 12 11 (chunk 2 (hurry 2))
+$ stack[
+    s "syn2/2" # n 5 # speed "0.5 1" # room 0.2 # gain 0.7 # hpf 2000 # orbit 1,
+    sometimesBy 0.6 (fast 2) $ s "gc1*4" # cut 113 # n (irand 32) # gain 0.6 # orbit 1 # speed "5" # shape 0.2 # hpf 800 # room 0.2 # lpf (range 3000 12000 $ slow 5 sine),
+    (0.0125 <~) $ s "{bs2~~}%4" # n 6 # cut 1 # hpf 60 # gain 0.5 # orbit 3,
+    every 8 (# hpf 300) $ degradeBy "<0.5 0.8>" $ s "k2*16" # cut 113 # hpf 30 # orbit 2 # speed (range 0.8 1.5 rand) # gain 0.62,
+    s "pc2(3,16,1)" # speed "<1.5 1>" # n "<1 8 9>" # hpf 600 # gain 0.6 # room 0.2 # orbit 4,
+    s "hts*16" # hpf 5000 # gain 0.35 |* gain "0.97 1" # room 0.2 # orbit 4,
+    s "~sn3" # n "<20 25 22>" # room 0.2 # hpf 500 # gain 0.7 # orbit 1
+]
+# cps(140/240)
+
+
+
+
+
+hush

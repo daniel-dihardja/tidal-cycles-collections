@@ -1,0 +1,276 @@
+
+-- pattern
+
+d1
+-- $ qtrigger 1
+$ whenmod 8 6 (# crush 6)
+$ whenmod 8 7 (rev)
+$ stack[
+    degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+    every 2 (off 0.125 (|* gain "0.9 0.5")) $ s "k2(2,4)" # n 6 # room 0.1 # gain 0.9 # orbit 2,
+    s "bs!2" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+    s "{syn2~~~~~~}%8" # cut 1712 # n 33 # up "<0 3 7 5>/2" # hpf 600 # room 0.2 # gain 0.9 # orbit 1,
+    s "hts*16" # n 2 # cut 1232 # hpf 6000 # gain 0.57 |* gain "[0.8 0.9 1 0.9]*4" # room 0.2 # orbit 4,
+    sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "~sn3" # n 5 # gain 1.2 #  hpf 300 # room 0.2 # orbit 1,
+    sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+    s "fx2" # n "<12 4>" # gain 0.9 # room 0.2 # hpf 600 # orbit 1,
+    s "sin" # n 5 # speed 1 # gain 0.6 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+    slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+]
+# cps(140/240)
+
+
+hush
+
+
+let pats =
+      [
+        ("marker",
+            slow 4
+            $ stack [
+                s "k2" # orbit 1,
+                s "k2" # orbit 2,
+                s "k2" # orbit 3,
+                s "k2" # orbit 4
+            ]
+        ),
+        ("intro",
+            -- whenmod 8 6 (# crush 4)
+            stack [
+                s "sin" # n 5 # speed 1 # gain 0.5 # lpf 10000 # hpf 700 # room 0.3 # orbit 1
+            ]
+        ),
+        ("b1",
+            -- whenmod 8 6 (# crush 4)
+            stack [
+                s "bs" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                -- sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "sin" # n 5 # speed 1 # gain 0.5 # lpf 10000 # hpf 700 # room 0.3 # orbit 1
+                -- slow 4 $ s "cym~~~" # n 1 # gain 0.8 # hpf 7000 # room 0.5 # orbit 4
+            ]
+        ),
+        ("b2",
+            whenmod 8 7 (# crush 6)
+            $ stack [
+                s "bs" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "sin" # n 5 # speed 1 # gain 0.5 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 4 $ s "cym~~~" # n 1 # gain 0.9 # hpf 7000 # room 0.5 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.8 # room 0.2 # hpf 600 # orbit 1
+            ]
+        ),
+        ("b3",
+            whenmod 8 7 (# crush 6)
+            $ stack [
+                s "bs" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "sin" # n 5 # speed 1 # gain 0.5 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                -- slow 4 $ s "cym~~~" # n 1 # gain 0.9 # hpf 7000 # room 0.5 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.8 # room 0.2 # hpf 600 # orbit 1,
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1
+            ]
+        ),
+        ("b4",
+            whenmod 8 7 (# crush 6)
+            $ stack [
+                s "bs" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "sin" # n 5 # speed 1 # gain 0.5 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 4 $ s "cym~~~" # n 1 # gain 0.9 # hpf 7000 # room 0.5 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.8 # room 0.2 # hpf 600 # orbit 1,
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                s "k2" # n 6 # room 0.1 # gain 0.9 # orbit 2
+            ]
+        ),
+        ("b5",
+            whenmod 8 7 (# crush 6)
+            $ stack [
+                s "bs!2" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "sin" # n 5 # speed 1 # gain 0.5 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 4 $ s "cym~~~" # n 1 # gain 0.9 # hpf 7000 # room 0.5 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.8 # room 0.2 # hpf 600 # orbit 1,
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                s "k2" # n 6 # room 0.1 # gain 0.9 # orbit 2,
+                s "~sn3" # n 15 # gain 0.8 #  hpf 300 # room 0.2 # orbit 1
+            ]
+        ),
+        ("b6",
+            whenmod 8 6 (# crush 6)
+            $ whenmod 8 7 (rev)
+            $ stack [
+                s "bs!2" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "sin" # n 5 # speed 1 # gain 0.5 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 4 $ s "cym~~~" # n 1 # gain 0.9 # hpf 7000 # room 0.5 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.8 # room 0.2 # hpf 600 # orbit 1,
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                s "k2" # n 6 # room 0.1 # gain 0.9 # orbit 2,
+                s "~sn3" # n 15 # gain 0.8 #  hpf 300 # room 0.2 # orbit 1,
+                s "{syn2~~~~~~}%4" # cut 1712 # n 33 # up "<0 3>/2" # hpf 600 # room 0.2 # gain 0.8 # orbit 1
+            ]
+        ),
+        ("b7",
+            whenmod 8 6 (# crush 6)
+            $ whenmod 8 7 (rev)
+            $ stack [
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                every 2 (off 0.125 (|* gain "0.9 0")) $ whenmod 8 7 (#hpf 240) $ s "k2(2,4)" # n 6 # room 0.1 # gain 0.9 # orbit 2,
+                s "bs!2" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                s "{syn2~~~~~~}%8" # cut 1712 # n 33 # up "<0 3 0 5>/2" # hpf 600 # room 0.2 # gain 0.9 # orbit 1,
+                s "~sn3" # n 15 # gain 0.9 #  hpf 300 # room 0.2 # orbit 1,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.8 # room 0.2 # hpf 600 # orbit 1,
+                s "sin" # n 5 # speed 1 # gain 0.6 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+            ]
+        ),
+        ("b8",
+            whenmod 8 6 (# crush 6)
+            $ whenmod 8 7 (rev)
+            $ stack [
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                every 2 (off 0.125 (|* gain "0.9 0")) $ s "k2(2,4)" # n 6 # room 0.1 # gain 0.9 # orbit 2,
+                s "bs!2" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                s "{syn2~~~~~~}%8" # cut 1712 # n 33 # up "<0 3 7 5>/2" # hpf 600 # room 0.2 # gain 0.9 # orbit 1,
+                s "hts*16" # n 2 # cut 1232 # hpf 6000 # gain 0.57 |* gain "[0.8 0.9 1 0.9]*4" # room 0.2 # orbit 4,
+                s "~sn3" # n 15 # gain 0.9 #  hpf 300 # room 0.2 # orbit 1,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.9 # room 0.2 # hpf 600 # orbit 1,
+                s "sin" # n 5 # speed 1 # gain 0.6 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+            ] # vowel "u"
+        ),
+        ("b9",
+            whenmod 8 6 (# crush 6)
+            $ whenmod 8 7 (rev)
+            $ stack [
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                s "bs!2" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                s "{syn2~~~~~~}%8" # cut 1712 # n 33 # up "<0 3 0 5>/2" # hpf 600 # room 0.2 # gain 0.9 # orbit 1,
+                s "hts*16" # n 2 # cut 1232 # hpf 6000 # gain 0.57 |* gain "[0.8 0.9 1 0.9]*4" # room 0.2 # orbit 4,
+                s "~sn3" # n 15 # gain 0.9 #  hpf 300 # room 0.2 # orbit 1,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.9 # room 0.2 # hpf 600 # orbit 1,
+                s "sin" # n 5 # speed 1 # gain 0.6 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+            ]
+        ),
+        ("b9b",
+            whenmod 8 6 (# crush 6)
+            $ whenmod 8 7 (rev)
+            $ stack [
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                s "bs" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                s "{syn2~~~~~~}%8" # cut 1712 # n 33 # up "<0 3 0 5>/2" # hpf 600 # room 0.2 # gain 0.9 # orbit 1,
+                -- s "hts*16" # n 2 # cut 1232 # hpf 6000 # gain 0.57 |* gain "[0.8 0.9 1 0.9]*4" # room 0.2 # orbit 4,
+                s "~sn3" # n 15 # gain 0.7 #  hpf 300 # room 0.2 # orbit 1,
+                -- sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.8 # room 0.2 # hpf 600 # orbit 1,
+                s "sin" # n 5 # speed 1 # gain 0.6 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+            ]
+        ),
+        ("b9c",
+            whenmod 8 6 (# crush 6)
+            $ whenmod 8 7 (rev)
+            $ stack [
+                -- degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                s "bs" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                s "{syn2~~~~~~}%4" # cut 1712 # n 33 # up "<0 3 0 5>/2" # hpf 600 # room 0.2 # gain 0.8 # orbit 1,
+                -- s "hts*16" # n 2 # cut 1232 # hpf 6000 # gain 0.57 |* gain "[0.8 0.9 1 0.9]*4" # room 0.2 # orbit 4,
+                -- sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "~sn3" # n 5 # gain 1.2 #  hpf 300 # room 0.2 # orbit 1,
+                -- sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                -- s "fx2" # n "<12 4>" # gain 0.9 # room 0.2 # hpf 600 # orbit 1,
+                s "sin" # n 5 # speed 1 # gain 0.6 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+            ]
+        ),
+        ("end",
+            whenmod 8 6 (# crush 6)
+            $ whenmod 8 7 (rev)
+            $ stack [
+                -- degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                slow 2 $ s "bs" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                s "{syn2~~~~~~}%4" # cut 1712 # n 33 # up "<0 3 0 5>/2" # hpf 600 # room 0.2 # gain 0.7 # orbit 1,
+                -- s "hts*16" # n 2 # cut 1232 # hpf 6000 # gain 0.57 |* gain "[0.8 0.9 1 0.9]*4" # room 0.2 # orbit 4,
+                -- sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "~sn3" # n 5 # gain 1.2 #  hpf 300 # room 0.2 # orbit 1,
+                -- sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                -- s "fx2" # n "<12 4>" # gain 0.9 # room 0.2 # hpf 600 # orbit 1,
+                s "sin" # n 5 # speed 1 # gain 0.6 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+            ]
+        ),
+        ("b10",
+            whenmod 8 6 (# crush 6)
+            -- $ whenmod 8 7 (rev)
+            $ stack [
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                slow 2 $ whenmod 8 7 (#hpf 240) $ s "k2(2,4)" # n 6 # room 0.1 # gain 0.9 # orbit 2,
+                s "bs!2" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                s "{syn2~~~~~~}%4" # cut 1712 # n 33 # up "<0 3>/2" # hpf 600 # room 0.2 # gain 0.9 # orbit 1,
+                -- s "hts*16" # n 2 # cut 1232 # hpf 6000 # gain 0.57 |* gain "[0.8 0.9 1 0.9]*4" # room 0.2 # orbit 4,
+                whenmod 8 7 (const $ s "~~[~sn3]~" # n 15 # gain 0.9 #  hpf 300 # room 0.2 # orbit 1) $ s "~",
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.9 # room 0.2 # hpf 600 # orbit 1,
+                s "sin" # n 5 # speed 1 # gain 0.6 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+            ]
+        ),
+        ("b11",
+            whenmod 8 6 (# crush 6)
+            $ whenmod 8 7 (rev)
+            $ stack [
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                every 2 (off 0.125 (|* gain "0.8 0")) $ s "k2(2,4)" # n 6 # room 0.1 # gain 0.9 # orbit 2,
+                s "bs!2" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                s "{syn2~~~~~~}%8" # cut 1712 # n 33 # up "<3 0 0 7>/2" # hpf 600 # room 0.2 # gain 0.9 # orbit 1,
+                -- s "hts*16" # n 2 # cut 1232 # hpf 6000 # gain 0.57 |* gain "[0.8 0.9 1 0.9]*4" # room 0.2 # orbit 4,
+                s "~sn3" # n 15 # gain 0.9 #  hpf 300 # room 0.2 # orbit 1,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.9 # room 0.2 # hpf 600 # orbit 1,
+                s "sin" # n 5 # speed 1 # gain 0.6 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+            ]
+        ),
+        ("ref-2",
+            whenmod 8 6 (# crush 6)
+            $ whenmod 8 7 (rev)
+            $ stack [
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (12 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                every 2 (off 0.125 (|* gain "0.8 0")) $ s "k2(2,4)" # n 6 # room 0.1 # gain 0.9 # orbit 2,
+                s "bs!2" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                s "{syn2~~~~~~}%8" # cut 1712 # n 33 # up "<0 3 7 5>/2" # hpf 600 # room 0.2 # gain 0.95 # orbit 1,
+                s "hts*16" # n 2 # cut 1232 # hpf 6000 # gain 0.57 |* gain "[0.8 0.9 1 0.9]*4" # room 0.2 # orbit 4,
+                s "~sn3" # n "[15,5]" # gain 0.9 #  hpf 300 # room 0.2 # orbit 1,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.9 # room 0.2 # hpf 600 # orbit 1,
+                s "sin" # n 5 # speed "1" # gain 0.7 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+            ]
+        ),
+        ("ref",
+            whenmod 8 6 (# crush 6)
+            $ whenmod 8 7 (rev)
+            $ stack [
+                degradeBy 0.3 $ (0.125 ~>) $ s "gc1*8" # n (10 + irand 4) # cut 111 # vowel "a" # hpf 300 # room 0.2 # gain 0.95 # orbit 1,
+                every 2 (off 0.125 (|* gain "0.8 0")) $ s "k2(2,4)" # n 6 # room 0.1 # gain 0.9 # orbit 2,
+                s "bs!2" # up "0" # n 2 # gain 0.6 # cut 1 # orbit 3 # hpf 60,
+                s "{syn2~~~~~~}%8" # cut 1712 # n 33 # up "<0 3 7 5>/2" # hpf 600 # room 0.2 # gain 0.95 # orbit 1,
+                s "hts*16" # n 2 # cut 1232 # hpf 6000 # gain 0.57 |* gain "[0.8 0.9 1 0.9]*4" # room 0.2 # orbit 4,
+                s "~sn3" # n 15 # gain 0.9 #  hpf 300 # room 0.2 # orbit 1,
+                sometimesBy 0.3 (stutWith 2 (0.0625) (|* gain 0.8)) $ s "[~hts]*2" # n 4 # hpf 6000 # room 0.2 |* gain "0.9 1" # cut 1212 # gain 0.9 # orbit 4,
+                s "fx2" # n "<12 4>" # gain 0.9 # room 0.2 # hpf 600 # orbit 1,
+                s "sin" # n 5 # speed 1 # gain 0.6 # lpf 10000 # hpf 700 # room 0.3 # orbit 1,
+                slow 8 $ s "cym ~ ~ ~" # n 1 # gain 1 # hpf 4000 # room 0.2 # orbit 4
+            ]
+        )
+      ]
+in
+d1
+$ qtrigger 1
+$ ur 136 "marker b1 b3 b5 b6 b7 ref!2 b9 b10 b11 ref-2!2 b9 b9b b9c end" pats [] -- part 1
+-- $ ur 16 "b9b" pats fx
+# cps (140/240)
+
+hush

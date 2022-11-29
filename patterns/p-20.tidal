@@ -1,0 +1,128 @@
+
+
+-- TODO:
+
+-- 1. zimt application for hosting audio visual live coding user group meet up monthly.
+-- 2. video demo 3 ~ 4 min showing tidal cycles with hydra visuals.
+
+hush
+
+setcps (140/240)
+
+-- intro
+d1
+$ stack [
+    s "[bs2(3,8)]"
+        # n 2
+        # note "<d4!7 f4>"
+        # hpf 200
+        # lpf (range 200 450 $ slow 5 sine)
+        # gain 0.7
+        # orbit 3,
+    every 2 (off "<0.25>" ((rev).(fast 2)))
+        $ sometimes (stutWith 3 (0.125) (|* gain 0.8))
+        $ s "[kcks]"
+        # note "a4"
+        # n "<3>"
+        # lpf 1000
+        # hpf 300
+        # gain 0.9
+        # orbit 2
+]
+# cps (140/240)
+
+-- medium groove
+
+d1
+$ stack [
+    s "[bs2(3,8)]"
+        # n 2
+        # note "<d4!7 f4>"
+        # hpf 60
+        # lpf (range 200 450 $ slow 5 sine)
+        # gain 0.6
+        # orbit 1,
+    every 2 (off "<0.25>" ((rev).(fast 2)))
+        $ sometimes (stutWith 3 (0.125) (|* gain 0.8))
+        $ s "[kcks]"
+        # note "a4"
+        # n "<3>"
+        # lpf 1000
+        # hpf 30
+        # gain 0.9
+        # orbit 1,
+    jux (rev)
+        $ sometimesBy 0.8 (fast 4)
+        $ s "hts*4"
+        # n "<2>"
+        # note "d6"
+        # orbit 5
+        # legato "<0.2 1>"
+        # gain 0.6
+        |* gain "[0.7 0.9 1 0.9]*4"
+        # hpf 6000
+        # room 0.2,
+    slow 2
+        $ juxBy 0.5 (# delay 0.1)
+        $ s "~~snr~~~snr/2~"
+        # n "7"
+        # note "a3"
+        # legato 0.3
+        # orbit 1
+        # gain 0.8
+        # hpf 900
+        # room 0.2
+        # pan (range 0.4 0.6 $ slow 5 sine)
+]
+# orbit 1
+# cps (140/240)
+
+
+-- groove 1
+
+d1
+$ stack [
+    s "[bs2(3,8)]"
+        # n 2
+        # note "<d4!7 f4>"
+        # hpf 60
+        # lpf (range 200 450 $ slow 5 sine)
+        # gain 0.7,
+    every 2 (off 0.25 ((rev).(fast 2).(|* gain 0.8)))
+        $ sometimes (stutWith 3 (0.125) (|* gain 0.8))
+        $ s "kcks"
+        # note "a4"
+        # n "<3>"
+        # lpf 1000
+        # hpf 30
+        # gain 0.9,
+    jux (rev)
+        $ sometimesBy 0.8 (fast 4)
+        $ s "hts*4"
+        # n "<2>"
+        # note "d6"
+        # legato "<0.2 1>"
+        # gain 0.6
+        |* gain "[0.7 0.9 1 0.9]*4"
+        # hpf 6000
+        # room 0.2,
+    slow 2
+        $ juxBy 0.5 (# delay 0.1)
+        $ s "~~snr~~~snr/2~"
+        # n "7"
+        # note "a3"
+        # legato 0.3
+        # gain 0.7
+        # hpf 900
+        # room 0.2
+        # pan (range 0.4 0.6 $ slow 5 sine),
+    stutWith "<2 3>" (0.125) (|* gain 0.8)
+        $ s "pc2" # n (irand 32)
+        # hpf 1200 # room 0.2 # gain 0.7 # shape 0.2 # speed "[1,2]"
+]
+# orbit 1
+# cps (140/240)
+
+
+
+hush

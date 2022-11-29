@@ -1,0 +1,27 @@
+
+
+hush
+
+d1
+$ qtrigger 1
+$ stack [
+    sometimesBy 0.2 (|* speed "-1") $ s "~ [~cp] ~ cp" # n "8 1" # hpf 600 # gain 1,
+    s "{pec:1 ~ ~}%4" # speed 0.5 # gain 0.9 # hpf 400 # room 0.3,
+    every 4 (stutWith 2 (0.125) (|* gain 0.9)) $ s "k2 ~ [~k2/2] k2/4" # cut 777 # n 5 # hpf 20,
+    degradeBy "<0.7 0.9>" $ superimpose((# speed "<1.5 2>").(|* gain 0.8)) $ s "syn2*8" # speed "[0.5,1]" # n "[27,7]" # room 0.2 # delay 0.2 # cut 1 # hpf 600 # gain 0.9,
+    s "bs2 ~~[bs2/2~]" # n 0 # gain 0.8,
+    s "hts*8" # n "5 8" # legato 0.15 # gain (0.8 + perlin/4) # hpf 5000 # room 0.2
+]
+# orbit 1
+# cps (140/240)
+
+hush
+
+d2 silence
+$ stack[
+  s "gc1*<16 32 0>" # n "1 2 3 4 5 6 7 8 9" # hpf 400 # gain 1.2 # room 0.2
+]
+# cps(140/240)
+# orbit 0
+
+hush

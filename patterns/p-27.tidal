@@ -1,0 +1,402 @@
+let m p = (const $s "~") p
+
+-- pattern
+
+d1
+$ qtrigger 1
+$ every 6 (jux(rev))
+$ every 5 (# coarse 3)
+$ whenmod 8 5 (# crush 6)
+$ whenmod 7 6 (superimpose (rev))
+$ whenmod 12 11 (chunk 2 (hurry 2))
+$ stack[
+    s "syn2/2" # n 5 # speed 0.5 # room 0.2 # gain 0.5 # hpf 500 # distort 0.1,
+    s "gc1*8" # n (irand 16) # cut 223 # gain 0.7 # speed "<0.5 1 2>/2" # hpf 1200 # room 0.1,
+    (0.0125 <~) $ s "{bs2~~}%4" # n 4 # cut 1 # hpf 60 # gain 0.6 # lpf 600,
+    every 8 (# hpf 300) $ s "k2~[~k2]k2/2" # n 4 # hpf 30 # gain 0.7 |* gain "1 ~ 0.9 1",
+    sometimes (stutWith 3 (0.0625)(|* gain 0.85)) $ s "pc2(3,8,<3 4 5 6>)" # speed "<1.5 1>" # n "<5 7>" # hpf 600 # gain 0.7 # room 0.2,
+    s "hts*16" # n 4 # hpf 6000 # gain 0.6 |* gain "[0.97 1]*4" # room 0.2,
+    s "[~pc2/2]~~~" # n 14 # speed 2 # hpf 600 # gain 0.8 # room 0.2,
+    sometimesBy 0.3 (stutWith 2 (0.125)(|* gain 0.9)) $ s "~sn3" # n 11 # room 0.2 # hpf 800 # gain 0.75
+]
+# cps(140/240)
+# orbit 1
+
+hush
+
+
+-- track
+
+
+
+
+
+
+
+
+
+
+
+d1
+$ qtrigger 1
+$ every 6 (jux(rev))
+$ every 5 (# coarse 3)
+$ whenmod 8 5 (# crush 6)
+$ whenmod 7 6 (superimpose (rev))
+$ whenmod 12 11 (chunk 2 (hurry 2))
+$ stack[
+    s "syn2/2" # n 5 # speed 0.5 # room 0.2 # gain 0.5 # hpf 500 # distort 0.1,
+    -- s "gc1*8" # n (irand 16) # cut 223 # gain 0.7 # speed "<0.5 1 2>/2" # hpf 1200 # room 0.1,
+    -- (0.0125 <~) $ s "{bs2~~}%4" # n 4 # cut 1 # hpf 60 # gain 0.6 # lpf 600,
+    -- every 8 (# hpf 300) $ s "k2~[~k2]k2/2" # n 4 # hpf 30 # gain 0.7 |* gain "1 ~ 0.9 1",
+    -- sometimes (stutWith 3 (0.0625)(|* gain 0.85)) $ s "pc2(3,8,<3 4 5 6>)" # speed "<1.5 1>" # n "<5 7>" # hpf 600 # gain 0.7 # room 0.2,
+    -- s "hts*16" # n 4 # hpf 6000 # gain 0.6 |* gain "[0.97 1]*4" # room 0.2,
+    s "[~pc2/2]~~~" # n 14 # speed 2 # hpf 600 # gain 0.8 # room 0.2
+    -- sometimesBy 0.3 (stutWith 2 (0.125)(|* gain 0.9)) $ s "~sn3" # n 11 # room 0.2 # hpf 800 # gain 0.75
+]
+# cps(140/240)
+# orbit 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d1
+$ every 6 (jux(rev))
+$ every 5 (# coarse 3)
+$ whenmod 8 5 (# crush 6)
+$ whenmod 7 6 (superimpose (rev))
+$ whenmod 12 11 (chunk 2 (hurry 2))
+$ stack[
+    s "syn2/2" # n 5 # speed 0.5 # room 0.2 # gain 0.5 # hpf 500 # distort 0.1,
+    -- s "gc1*8" # n (irand 16) # cut 223 # gain 0.7 # speed "<0.5 1 2>/2" # hpf 1200 # room 0.1,
+    -- (0.0125 <~) $ s "{bs2~~}%4" # n 4 # cut 1 # hpf 60 # gain 0.6 # lpf 600,
+    -- every 8 (# hpf 300) $ s "k2~[~k2]k2/2" # n 4 # hpf 30 # gain 0.7 |* gain "1 ~ 0.9 1",
+    sometimes (stutWith 3 (0.0625)(|* gain 0.85)) $ s "pc2(3,8,<3 4 5 6>)" # speed "<1.5 1>" # n "<5 7>" # hpf 600 # gain 0.7 # room 0.2,
+    -- s "hts*16" # n 4 # hpf 6000 # gain 0.6 |* gain "[0.97 1]*4" # room 0.2,
+    s "[~pc2/2]~~~" # n 14 # speed 2 # hpf 600 # gain 0.8 # room 0.2
+    -- sometimesBy 0.3 (stutWith 2 (0.125)(|* gain 0.9)) $ s "~sn3" # n 11 # room 0.2 # hpf 800 # gain 0.75
+]
+# cps(140/240)
+# orbit 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d1
+$ every 6 (jux(rev))
+$ every 5 (# coarse 3)
+$ whenmod 8 5 (# crush 6)
+$ whenmod 7 6 (superimpose (rev))
+$ whenmod 12 11 (chunk 2 (hurry 2))
+$ stack[
+    s "syn2/2" # n 5 # speed 0.5 # room 0.2 # gain 0.5 # hpf 500 # distort 0.1,
+    s "gc1*8" # n (irand 16) # cut 223 # gain 0.7 # speed "<0.5 1 2>/2" # hpf 1200 # room 0.1,
+    -- (0.0125 <~) $ s "{bs2~~}%4" # n 4 # cut 1 # hpf 60 # gain 0.6 # lpf 600,
+    -- every 8 (# hpf 300) $ s "k2~[~k2]k2/2" # n 4 # hpf 30 # gain 0.7 |* gain "1 ~ 0.9 1",
+    sometimes (stutWith 3 (0.0625)(|* gain 0.85)) $ s "pc2(3,8,<3 4 5 6>)" # speed "<1.5 1>" # n "<5 7>" # hpf 600 # gain 0.7 # room 0.2,
+    -- s "hts*16" # n 4 # hpf 6000 # gain 0.6 |* gain "[0.97 1]*4" # room 0.2,
+    s "[~pc2/2]~~~" # n 14 # speed 2 # hpf 600 # gain 0.8 # room 0.2
+    -- sometimesBy 0.3 (stutWith 2 (0.125)(|* gain 0.9)) $ s "~sn3" # n 11 # room 0.2 # hpf 800 # gain 0.75
+]
+# cps(140/240)
+# orbit 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d1
+$ every 6 (jux(rev))
+$ every 5 (# coarse 3)
+$ whenmod 8 5 (# crush 6)
+$ whenmod 7 6 (superimpose (rev))
+$ whenmod 12 11 (chunk 2 (hurry 2))
+$ stack[
+    s "syn2/2" # n 5 # speed 0.5 # room 0.2 # gain 0.5 # hpf 500 # distort 0.1,
+    s "gc1*8" # n (irand 16) # cut 223 # gain 0.7 # speed "<0.5 1 2>/2" # hpf 1200 # room 0.1,
+    (0.0125 <~) $ s "{bs2~~}%4" # n 4 # cut 1 # hpf 60 # gain 0.6 # lpf 600,
+    every 8 (# hpf 300) $ s "k2~[~k2]k2/2" # n 4 # hpf 300 # gain 0.7 |* gain "1 ~ 0.9 1",
+    sometimes (stutWith 3 (0.0625)(|* gain 0.85)) $ s "pc2(3,8,<3 4 5 6>)" # speed "<1.5 1>" # n "<5 7>" # hpf 600 # gain 0.7 # room 0.2,
+    -- s "hts*16" # n 4 # hpf 6000 # gain 0.6 |* gain "[0.97 1]*4" # room 0.2,
+    s "[~pc2/2]~~~" # n 14 # speed 2 # hpf 600 # gain 0.8 # room 0.2,
+    sometimesBy 0.3 (stutWith 2 (0.125)(|* gain 0.9)) $ s "~sn3" # n 11 # room 0.2 # hpf 800 # gain 0.75
+]
+# cps(140/240)
+# orbit 1
+
+hush
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d1
+$ every 6 (jux(rev))
+$ every 5 (# coarse 3)
+$ whenmod 8 5 (# crush 6)
+$ whenmod 7 6 (superimpose (rev))
+$ whenmod 12 11 (chunk 2 (hurry 2))
+$ stack[
+    s "syn2/2" # n 5 # speed 0.5 # room 0.2 # gain 0.5 # hpf 500 # distort 0.1,
+    s "gc1*8" # n (irand 16) # cut 223 # gain 0.7 # speed "<0.5 1 2>/2" # hpf 1200 # room 0.1,
+    (0.0125 <~) $ s "{bs2~~}%4" # n 4 # cut 1 # hpf 60 # gain 0.6 # lpf 600,
+    every 8 (# hpf 300) $ s "k2~[~k2]k2/2" # n 4 # hpf 30 # gain 0.7 |* gain "1 ~ 0.9 1",
+    sometimes (stutWith 3 (0.0625)(|* gain 0.85)) $ s "pc2(3,8,<3 4 5 6>)" # speed "<1.5 1>" # n "<10 12 16 17 22>" # hpf 600 # gain 0.7 # room 0.2,
+    s "hts*16" # n 4 # hpf 6000 # gain 0.6 |* gain "[0.97 1]*4" # room 0.2,
+    s "[~pc2/2]~~~" # n 14 # speed 2 # hpf 600 # gain 0.8 # room 0.2,
+    sometimesBy 0.3 (stutWith 2 (0.125)(|* gain 0.9)) $ s "~sn3" # n 11 # room 0.2 # hpf 800 # gain 0.75
+]
+# cps(140/240)
+# orbit 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hush
+
+
+
+
+
+
+xfadeIn 1 8
+$ every 6 (jux(rev))
+$ every 5 (# coarse 3)
+$ whenmod 8 5 (# crush 6)
+$ whenmod 7 6 (superimpose (rev))
+$ whenmod 12 11 (chunk 2 (hurry 2))
+$ stack[
+    s "syn2/2" # n 5 # speed 0.5 # room 0.2 # gain 0.5 # hpf 500 # distort 0.1,
+    s "gc1*8" # n (irand 16) # cut 223 # gain 0.7 # speed "<0.5 1 2>/2" # hpf 1200 # room 0.1,
+    (0.0125 <~) $ s "{bs2~~}%4" # n 4 # cut 1 # hpf 60 # gain 0.6 # lpf 600,
+    every 8 (# hpf 300) $ s "k2~[~k2]k2/2" # n 4 # hpf 100 # gain 0.7 |* gain "1 ~ 0.9 1",
+    sometimes (stutWith 3 (0.0625)(|* gain 0.85)) $ s "pc2(3,8,<3 4 5 6>)" # speed "<1.5 1>" # n "<10 12 16 17 22>" # hpf 600 # gain 0.7 # room 0.2,
+    -- s "hts*16" # n 4 # hpf 6000 # gain 0.6 |* gain "[0.97 1]*4" # room 0.2,
+    s "[~pc2/2]~~~" # n 14 # speed 2 # hpf 600 # gain 0.8 # room 0.2,
+    sometimesBy 0.3 (stutWith 2 (0.125)(|* gain 0.9)) $ s "~sn3" # n 11 # room 0.2 # hpf 800 # gain 0.75
+]
+# cps(140/240)
+# orbit 1
+
+
+
+
+
+
+
+
+
+
+
+hush
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d1
+$ every 6 (jux(rev))
+$ every 5 (# coarse 3)
+$ whenmod 8 5 (# crush 6)
+$ whenmod 7 6 (superimpose (rev))
+$ whenmod 12 11 (chunk 2 (hurry 2))
+$ stack[
+    s "syn2/2" # n 5 # speed 0.5 # room 0.2 # gain 0.5 # hpf 500 # distort 0.1,
+    s "gc1*8" # n (irand 16) # cut 223 # gain 0.7 # speed "<0.5 1 2>/2" # hpf 1200 # room 0.1,
+    s "{bs2~~}%4" # n 4 # cut 1 # hpf 60 # gain 0.6 # lpf 600,
+    every 8 (# hpf 300) $ s "k2~[~k2]k2/2" # n 4 # hpf 300 # gain 0.7 |* gain "1 ~ 0.9 1",
+    sometimes (stutWith 3 (0.0625)(|* gain 0.85)) $ s "pc2(3,8,<3 4 5 6>)" # speed "<1.5 1>" # n "<10 12 16 17 22>" # hpf 600 # gain 0.7 # room 0.2,
+    -- s "hts*16" # n 4 # hpf 6000 # gain 0.6 |* gain "[0.97 1]*4" # room 0.2,
+    s "[~pc2/2]~~~" # n 14 # speed 2 # hpf 600 # gain 0.8 # room 0.2,
+    sometimesBy 0.3 (stutWith 2 (0.125)(|* gain 0.9)) $ s "~sn3" # n 11 # room 0.2 # hpf 800 # gain 0.75
+]
+# cps(140/240)
+# orbit 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d1
+$ every 6 (jux(rev))
+$ every 5 (# coarse 3)
+$ whenmod 8 5 (# crush 6)
+$ whenmod 7 6 (superimpose (rev))
+$ whenmod 12 11 (chunk 2 (hurry 2))
+$ stack[
+    s "syn2/2" # n 5 # speed 0.5 # room 0.2 # gain 0.5 # hpf 500 # distort 0.1,
+    s "gc1*8" # n (irand 16) # cut 223 # gain 0.7 # speed "<0.5 1 2>/2" # hpf 1200 # room 0.1,
+    -- (0.0125 <~) $ s "{bs2~~}%4" # n 4 # cut 1 # hpf 60 # gain 0.6 # lpf 600,
+    -- every 8 (# hpf 300) $ s "k2~[~k2]k2/2" # n 4 # hpf 300 # gain 0.7 |* gain "1 ~ 0.9 1",
+    sometimes (stutWith 3 (0.0625)(|* gain 0.85)) $ s "pc2(3,8,<3 4 5 6>)" # speed "<1.5 1>" # n "<10 12 16 17 22>" # hpf 600 # gain 0.7 # room 0.2,
+    -- s "hts*16" # n 4 # hpf 6000 # gain 0.6 |* gain "[0.97 1]*4" # room 0.2,
+    s "[~pc2/2]~~~" # n 14 # speed 2 # hpf 600 # gain 0.8 # room 0.2,
+    sometimesBy 0.3 (stutWith 2 (0.125)(|* gain 0.9)) $ s "~sn3" # n 11 # room 0.2 # hpf 800 # gain 0.75
+]
+# cps(140/240)
+# orbit 1
+
+
+
+xfadeIn 1 4 "~"
+
+
+hush

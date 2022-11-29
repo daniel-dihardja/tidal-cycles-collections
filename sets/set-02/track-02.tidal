@@ -1,0 +1,50 @@
+d1
+$ stack[
+  slow 4 $ s "drl" # n "2" # orbit 1 # hpf 800 # gain 0.7,
+  slow 4 $ s "fxm" # n "<0 17>" # orbit 1 # hpf 400 # gain 0.7 # room 0.2,
+  slow 4 $ s "bl" # n 12 # cut 2251 # orbit 3 # gain 0.4,
+  slow 2 $ s "rbt" # n "<5 6>" # orbit 1 # room 0.2 # cut 771 # gain 0.65 # hpf 400,
+  slow 2 $ s "gl" # n "<12 17>/2" # orbit 1 # gain 0.52 # hpf 30,
+  slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.7 # speed 0.8
+]
+# cps(140/240)
+
+
+
+
+let pats =
+     [
+        ("a",
+            stack[
+                slow 4 $ s "drl" # n "2" # orbit 1 # hpf 800 # gain 0.7
+            ]
+        ),
+        ("b",
+            stack[
+                slow 4 $ s "drl" # n "2" # orbit 1 # hpf 800 # gain 0.7,
+                slow 4 $ s "bl" # n 12 # cut 2251 # orbit 3 # gain 0.4
+            ]
+        ),
+        ("c",
+            stack[
+                slow 4 $ s "drl" # n "2" # orbit 1 # hpf 800 # gain 0.7,
+                slow 4 $ s "bl" # n 12 # cut 2251 # orbit 3 # gain 0.4,
+                slow 4 $ s "fxm" # n "<0 17>" # orbit 1 # hpf 400 # gain 0.7 # room 0.2,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.7 # speed 0.8
+            ]
+        ),
+        ("d",
+            stack[
+                slow 4 $ s "drl" # n "2" # orbit 1 # hpf 800 # gain 0.7,
+                slow 4 $ s "bl" # n 12 # cut 2251 # orbit 3 # gain 0.4,
+                slow 4 $ s "fxm" # n "<0 17>" # orbit 1 # hpf 400 # gain 0.7 # room 0.2,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.7 # speed 0.8,
+                slow 2 $ s "rbt" # n "<5 6>" # orbit 1 # room 0.2 # cut 771 # gain 0.5 # hpf 400
+            ]
+        )
+     ]
+in
+d1
+$ ur 32 "c d" pats []
+
+hush

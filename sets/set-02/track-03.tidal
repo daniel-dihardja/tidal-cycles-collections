@@ -1,0 +1,70 @@
+
+-- Ambient in D # 3
+
+d1
+$ stack[
+  slow 4 $ s "drl" # n "14" # orbit 1 # hpf 800 # cut 51 # gain 0.7,
+  slow 2 $ s "bl" # n 26 # orbit 3 # hpf 60 # gain 0.4,
+  slow 8 $ s "fxr" # n 3 # orbit 2 # hpf 600 # gain 0.55,
+  slow 4 $ s "am" # n "<5 6>" # orbit 1 # hpf 800 # gain 0.8 # cut 71,
+  whenmod 64 16 (# gain 0.7) $ slow 2 $ s "rbt" # n 14 # orbit 1 # hpf 400 # gain 0 # room 0.2,
+  whenmod 64 32 (# gain 0.6) $ slow 4 $ s "gl" # n "<9>" # orbit 1 # hpf 30 # gain 0,
+  slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+]
+# cps(140/240)
+# orbit 0
+
+hush
+
+
+let pats =
+     [
+        ("a",
+            stack [
+                slow 4 $ s "drl" # n "14" # orbit 1 # hpf 800 # cut 51 # gain 0.7
+            ]
+        ),
+        ("b",
+            stack [
+                slow 4 $ s "drl" # n "14" # orbit 1 # hpf 800 # cut 51 # gain 0.7,
+                slow 2 $ s "bl" # n 26 # orbit 3 # hpf 60 # gain 0.4
+            ]
+        ),
+        ("c",
+            stack [
+                slow 4 $ s "drl" # n "14" # orbit 1 # hpf 800 # cut 51 # gain 0.7,
+                slow 2 $ s "bl" # n 26 # orbit 3 # hpf 60 # gain 0.4,
+                slow 8 $ s "fxr" # n 3 # orbit 2 # hpf 600 # gain 0.55
+            ]
+        ),
+        ("d",
+            stack [
+                slow 4 $ s "drl" # n "14" # orbit 1 # hpf 800 # cut 51 # gain 0.7,
+                slow 2 $ s "bl" # n 26 # orbit 3 # hpf 60 # gain 0.4,
+                slow 8 $ s "fxr" # n 3 # orbit 2 # hpf 600 # gain 0.55,
+                slow 4 $ s "am" # n "<5 6>" # orbit 1 # hpf 800 # gain 0.8 # cut 71
+            ]
+        ),
+        ("e",
+            stack [
+                slow 4 $ s "drl" # n "14" # orbit 1 # hpf 800 # cut 51 # gain 0.7,
+                slow 2 $ s "bl" # n 26 # orbit 3 # hpf 60 # gain 0.4,
+                slow 8 $ s "fxr" # n 3 # orbit 2 # hpf 600 # gain 0.55,s
+                slow 4 $ s "am" # n "<5 6>" # orbit 1 # hpf 800 # gain 0.8 # cut 71,
+                slow 2 $ s "rbt" # n 14 # orbit 1 # hpf 400 # gain 0.5 # room 0.2
+            ]
+        ),
+        ("f",
+            stack [
+                slow 4 $ s "drl" # n "14" # orbit 1 # hpf 800 # cut 51 # gain 0.7,
+                slow 2 $ s "bl" # n 26 # orbit 3 # hpf 60 # gain 0.4,
+                slow 8 $ s "fxr" # n 3 # orbit 2 # hpf 600 # gain 0.55,
+                slow 4 $ s "am" # n "<5 6>" # orbit 1 # hpf 800 # gain 0.8 # cut 71,
+                slow 2 $ s "rbt" # n 14 # orbit 1 # hpf 400 # gain 0.5 # room 0.2,
+                slow 4 $ s "gl" # n "<9>" # orbit 1 # hpf 30 # gain 0.57
+            ]
+        )
+     ]
+in
+d1
+$ ur 32 "e f" pats []

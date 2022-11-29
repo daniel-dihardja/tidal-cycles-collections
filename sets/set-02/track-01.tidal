@@ -1,0 +1,68 @@
+
+xfadeIn 1 16
+$ stack[
+    slow 2 $ s "am" # n "<0 1 2>/2" # orbit 1 # hpf 800 # room 0.2 # gain 0.7,
+    slow 4 $ s "bl" # n 7 # orbit 3 # gain 0.4 # cut 3321 # hpf 60,
+    whenmod 64 8 (# hpf 0.8) $ slow 2 $ s "rbt" # n "<0 1>" # orbit 1 # hpf 200 # gain 0 # cut 321,
+    whenmod 64 32 (# gain 0.62) $ slow 4 $ s "gl" # n "<9 10>/2" # cut 67771 # orbit 1 # hpf 30 # gain 0,
+    slow 4 $ s "fxg" # n "<1 2>" # hpf 800 # orbit 1 # gain 0.6 # room 0.2,
+    slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+]
+# cps(140/240)
+
+
+
+
+hush
+
+
+
+let pats =
+     [
+        ("a",
+            stack[
+                slow 4 $ s "am" # n "<0 1 2>/2" # orbit 1 # hpf 800 # room 0.2 # gain 0.7 # cut 111
+            ]
+        ),
+        ("b",
+            stack[
+                slow 4 $ s "am" # n "<0 1 2>/2" # orbit 1 # hpf 800 # room 0.2 # gain 0.7 # cut 111,
+                slow 4 $ s "fxg" # n "<1 2>" # hpf 800 # orbit 1 # gain 0.6 # room 0.2
+            ]
+        ),
+        ("c",
+            stack[
+                slow 4 $ s "am" # n "<0 1 2>/2" # orbit 1 # hpf 800 # room 0.2 # gain 0.7 # cut 111,
+                slow 4 $ s "fxg" # n "<1 2>" # hpf 800 # orbit 1 # gain 0.6 # room 0.2,
+                slow 2 $ s "rbt" # n "<0 1>" # orbit 1 # hpf 200 # gain 0.62 # cut 321,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7
+            ]
+        ),
+        ("d",
+            stack[
+                slow 4 $ s "am" # n "<0 1 2>/2" # orbit 1 # hpf 800 # room 0.2 # gain 0.7 # cut 111,
+                slow 4 $ s "fxg" # n "<1 2>" # hpf 800 # orbit 1 # gain 0.6 # room 0.2,
+                slow 2 $ s "rbt" # n "<0 1>" # orbit 1 # hpf 200 # gain 0.62 # cut 321,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7,
+                slow 4 $ s "bl" # n 7 # orbit 3 # gain 0.4 # cut 3321 # hpf 60
+            ]
+        ),
+        ("e",
+            stack[
+                slow 4 $ s "am" # n "<0 1 2>/2" # orbit 1 # hpf 800 # room 0.2 # gain 0.7 # cut 111,
+                slow 4 $ s "fxg" # n "<1 2>" # hpf 800 # orbit 1 # gain 0.6 # room 0.2,
+                slow 2 $ s "rbt" # n "<0 1>" # orbit 1 # hpf 200 # gain 0.62 # cut 321,
+                slow 8 $ s "cym" # n 6 # hpf 4000 # orbit 4 # room 0.2 # gain 0.6 # speed 0.7,
+                slow 4 $ s "bl" # n 7 # orbit 3 # gain 0.4 # cut 3321 # hpf 60,
+                slow 4 $ s "gl" # n "<9 10>/2" # cut 67771 # orbit 1 # hpf 30 # gain 0.6
+            ]
+        )
+     ]
+in
+d1
+$ ur 80 "a b c d e" pats []
+-- $ ur 16 "d e" pats []
+
+
+
+hush

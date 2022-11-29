@@ -1,0 +1,60 @@
+hush
+
+--- Swingy beat
+
+d1
+$ whenmod 16 15 (# hpf 300)
+$ every 6 (chop 4)
+$ whenmod 8 6 (jux (iter 8))
+$ stack [
+    sometimesBy 0.4 (stutWith (choose [2,3]) (1/8) ((|* gain 0.8).(|* hpf 1.5)))
+        $ off 0.5 (|* gain 0.8)
+        $ fast 2
+        $ sometimesBy 0.1 (# speed "-2")
+        $ s "[kcks:(3,8)]"
+        # n ("[3|5]")
+        # hpf 30
+        # speed (range 0.8 1 $ rand)
+        # lpf 2500
+        # gain 1
+        # legato 0.7
+        # orbit 2,
+    sometimesBy 0.3 (jux (rev))
+        $ degradeBy 0.3
+        $ sometimesBy 0.6 (stutWith (choose [2,3]) (0.125) (|* gain 0.9))
+        $ s "[[~snr2:9(3,8)], [~pec:6]]"
+        # hpf 400
+        # gain 1.1
+        # speed 0.0
+        # orbit 1
+        # lpf 12000
+        # legato 0.7
+        # pan (range 0.4 0.6 $ slow 3 sine),
+    slow 8
+        $ sometimes (# speed "-1")
+        $ degradeBy "<0.8 0.4>"
+        $ striate 128
+        $ s "rde" # n "<2 4>"
+        # hpf 400
+        # lpf 10000
+        # delay 0.3
+        # orbit 1
+        # gain 0.9
+        # shape 0.2
+        # speed 2.3
+        # room 0.3
+        # pan (range 0.6 0.4 $ slow 3 sine),
+    sometimes (chunk 2 (fast 2))
+        $ degradeBy 0.2
+        $ s "[hts]*8"
+        # n "<3 4 11>"
+        # gain 0.7
+        # hpf 6000
+        # lpf 12000
+        # pan (slow 5 $ range 0.4 0.6 sine)
+        # room 0.2
+        # orbit 4
+]
+# cps (140/240)
+
+hush

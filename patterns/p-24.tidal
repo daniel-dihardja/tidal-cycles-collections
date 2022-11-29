@@ -1,0 +1,16 @@
+let m p = (const $s "~") p
+
+d1
+$ whenmod 8 5 (chop 4)
+$ stack[
+  slow 2 $ s "syn2" # n "[5,18]" # up "<0 3 7 5>" # room 0.2 # gain 0.6 # hpf 400 # lpf 2000,
+  s "{bs2~~}%4" # n 2 # gain 0.9 # hpf 60,
+  sometimesBy 0.7 (stutWith 3 (0.0625) (|* gain 0.85)) $ brak $ s "kcks" # n 3 # cut 1 # hpf 30,
+  s "gc1*<32 0 8>" # n "<9 ~ 10 ~ 8 ~>" # hpf 600 # gain 0.45 # room 0.2,
+  s "hts*16" # n "<7 8 9>" # hpf 5000 # room 0.2 # gain 0.8 |* gain "[0.9 1]*4",
+  s "~snr2*<0 1 3>" # n 14 # hpf 500 # gain 1.1 |* gain "1!2 0.9"
+]
+# cps(170/240)
+# orbit 1
+
+hush
