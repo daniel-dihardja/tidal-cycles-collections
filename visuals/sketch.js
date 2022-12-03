@@ -337,7 +337,7 @@ src(o0)
   .layer(src(o0).rotate(.005).scale(1.01))
   .layer(
     src(s0)
-      .contrast(3)
+      .contrast(2)
       .scale(() => 0.5+a.fft[0]*0.5)
       .scrollX(.1, .1)
       // .thresh(.5)
@@ -363,19 +363,66 @@ a.hide()
 
 speed=0.5
 
-s0.initImage('http://localhost:8081/pixel-03.png')
+s0.initImage('http://localhost:8080/cover.jpg')
 src(s0)
   .layer(src(o0).scale(1.01).rotate(.005))
   .layer(
     src(s0)
     .scale(() => 0.6+a.fft[0]*0.1)
-    .contrast(3)
-    .invert()
-     .colorama()
-    .hue([.6, .1, .9])
+    .contrast(1)
+    // .invert()
+     // .colorama()
+    // .hue([.6, .1, .9])
     .kaleid([2,4,6])
     .scrollX([.01, .02, .03], [.01, .02, .03])
   )
 .out()
 
+a.show()
+
 hush()
+
+s0.initImage('http://localhost:8080/cover.jpg')
+src(s0)
+  .layer(src(o0).scale(1.02).rotate(.01))
+  .layer(
+    src(s0)
+    .scale(()=> 0.2 + a.fft[0]*.3)
+    .contrast(1)
+    // .luma(.05)
+     .kaleid(3)
+    .scrollX(.1, -.1)
+    .mask(shape(1,.3))
+    .rotate(.3, -.3)
+  )
+.out()
+
+src(s0)
+  .layer(src(o0).scale(1.02).rotate(.01))
+  .layer(
+    src(s0)
+    .scale(()=> 0.1 + a.fft[0]*.1)
+    .contrast(1)
+    .luma(.01)
+    // .kaleid(3)
+    .rotate(.3, -.3)
+  )
+.out()
+
+
+src(s0)
+  .layer(src(o0).scale(1.02).rotate(.01))
+  .layer(
+    src(s0)
+    .scale(()=> 0.5 + a.fft[0]*.3)
+    // .hue([.01, .05, .2])
+    .contrast([1.5, 3])
+    .luma(.05)
+    // .kaleid(3)
+    .scrollX(.1, .2)
+    .scale([.2, .5, .3, .7])
+    .rotate(0, -.1)
+  )
+.out()
+
+hush
