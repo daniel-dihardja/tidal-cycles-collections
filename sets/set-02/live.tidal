@@ -22,7 +22,8 @@ $ stack[
 hush
 
 -- id: 2
-xfadeIn 1 16
+-- xfadeIn 1 16
+d1
 $ stack[
     slow 2 $ s "am" # n "<0 1 2>/2" # orbit 1 # hpf 800 # room 0.2 # gain 0.7,
     slow 4 $ s "bl" # n 7 # orbit 3 # gain 0.4 # cut 3321 # hpf 60,

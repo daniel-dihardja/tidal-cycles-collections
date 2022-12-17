@@ -34,7 +34,7 @@ $ stack [
         $ sometimes (# speed "-1")
         $ degradeBy "<0.8 0.4>"
         $ striate 128
-        $ s "rde" # n "<2 4>"
+        $ s "fxr" # n "<2 4>"
         # hpf 400
         # lpf 10000
         # delay 0.3
@@ -43,6 +43,7 @@ $ stack [
         # shape 0.2
         # speed 2.3
         # room 0.3
+        # cut 671
         # pan (range 0.6 0.4 $ slow 3 sine),
     sometimes (chunk 2 (fast 2))
         $ degradeBy 0.2

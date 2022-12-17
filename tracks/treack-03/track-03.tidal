@@ -1,0 +1,88 @@
+
+let pats =
+      [
+      ("marker",
+          stack [
+              slow 2 $ s "k2" # orbit 1,
+              slow 2 $ s "k2" # orbit 2,
+              slow 2 $ s "k2" # orbit 3,
+              slow 2 $ s "k2" # orbit 4,
+              slow 2 $ s "k2" # orbit 5,
+              slow 2 $ s "k2" # orbit 6,
+              slow 2 $ s "k2" # orbit 7,
+              slow 2 $ s "k2" # orbit 8,
+              slow 2 $ s "k2" # orbit 9
+          ]
+      ),
+        ("a",
+            whenmod 8 6 (# crush 8)
+            $ stack [
+                whenmod 16 15 (# hpf 300) $ s "kcks(4,4)" # n 1 # orbit 1 # gain 0.6,
+                s "bs2(3,8)" # n 5 # orbit 2 # hpf 60 # gain 0.45,
+                whenmod 16 8 (# gain 0.55) $ sometimesBy 0.1 (stutWith 2 (0.052) (|* gain "[0.4|0.5]")) $ s "[~hts]*4" # n 3 # legato 0.25 # hpf 3000 # orbit 8 # gain 0 # speed 0.7 # ctf 12000,
+                whenmod 16 8 (# gain 0.53) $ whenmod 16 15 (fast "1 1 2 4") $ s "~sn3~sn3" # n 3 # room 0.2 # gain 0 # orbit 7 # hpf 400 # legato 0.16,
+                whenmod 8 7 (hurry 2) $ sometimes (# speed "2 -2") $ degradeBy 0.7 $ fast "2 4" $ s "sn3*4" # n "<4 5 6 7>" # orbit 7 # gain 0.55 # hpf 600 # room 0.2 # speed "0.5 1" # legato 0.3 # ctf 2500,
+                slow 8 $ s "cym" # orbit 8 # hpf 3000 # gain 0.4 # room 0.2
+            ]
+        ),
+        ("b",
+            whenmod 8 6 (# crush 6)
+            $ stack [
+                whenmod 32 16 (fast "1 1 1 2") $ whenmod 16 15 (fast "1 1 2 4") $ whenmod 16 15 (# hpf 240) $ s "kcks(4,4)" # n 1 # orbit 1 # gain 0.6,
+                s "bs2(3,8)" # n 5 # orbit 2 # hpf 60 # gain 0.45,
+                whenmod 16 15 (fast "1 1 2 4") $ s "~sn3~sn3" # n 3 # room 0.2 # gain 0.53 # orbit 7 # hpf 400 # legato 0.16,
+                whenmod 8 4 (# crush (slow 4 "8 6 5 4"))  $ whenmod 8 7 (chunk 2 (hurry 2)) $ sometimes (# speed "2 -2") $ degradeBy "<0.2 0.4>" $ fast "2 4" $ s "sn3*4" # n "4 5 6" # orbit 7 # gain 0.6 # hpf 600 # room 0.2 # speed "1 <2 0.7 -2>" # legato 0.3 # ctf 6000,
+                s "{pc2~~~~~~}%8" # n 10 # gain 0.47 # orbit 7 # room 0.2 # hpf 400,
+                sometimesBy 0.4 (stutWith 2 (0.052) (|* gain "[0.5|0.6|0.7]")) $ s "[~hts]*4" # n 3 # legato 0.25 # hpf 3000 # orbit 8 # gain 0.55 # speed 0.7,
+                s "hts*16" # n 3 # orbit 8 # room 0.1 # gain 0.42 |* gain "[0.8 0.9 1 0.9]*4",
+                slow 4 $ s "cym" # orbit 8 # hpf 3000 # gain 0.4 # room 0.2
+            ]
+        ),
+        ("b2",
+            whenmod 8 6 (# crush 6)
+            $ stack [
+                whenmod 32 16 (fast "1 1 1 2") $ whenmod 16 15 (fast "1 1 2 4") $ whenmod 16 15 (# hpf 240) $ s "kcks(4,4)" # n 1 # orbit 1 # gain 0.6,
+                s "bs2(3,8)" # n 5 # orbit 2 # hpf 60 # gain 0.45,
+                whenmod 16 15 (fast "1 1 2 4") $ s "~sn3~sn3" # n 3 # room 0.2 # gain 0.53 # orbit 7 # hpf 400 # legato 0.16,
+                whenmod 8 4 (# crush (slow 4 "8 6 5 4"))  $ whenmod 8 7 (chunk 2 (hurry 2)) $ sometimes (# speed "2 -2") $ degradeBy "<0.2 0.4>" $ fast "2 4" $ s "pc2*4" # n "<7 <10 2 3>>/4 5 6" # orbit 7 # gain 0.55 # hpf 600 # room 0.2 # speed "1 <2 0.7 -2>" # legato 0.3 # ctf 6000,
+                s "{pc2~~~~~~}%8" # n 13 # gain 0.4 # speed "<1 0.5>/2" # orbit 7 # room 0.2 # hpf 400,
+                sometimesBy 0.4 (stutWith 2 (0.052) (|* gain "[0.5|0.6|0.7]")) $ s "[~hts]*4" # n 3 # legato 0.25 # hpf 3000 # orbit 8 # gain 0.55 # speed 0.7,
+                s "hts*16" # n 3 # orbit 8 # room 0.1 # gain 0.42 |* gain "[0.8 0.9 1 0.9]*4",
+                slow 4 $ s "cym" # orbit 8 # hpf 3000 # gain 0.4 # room 0.2
+            ]
+        ),
+        ("c",
+            whenmod 8 6 (# crush 6)
+            $ stack [
+                s "kcks(4,4)" # n 1 # orbit 1 # gain 0.6 # hpf 300,
+                s "bs2(3,8)" # n 5 # orbit 2 # hpf 60 # gain 0.45,
+                whenmod 16 15 (fast "1 1 2 4") $ s "~sn3~sn3" # n 3 # room 0.2 # gain 0.53 # orbit 7 # hpf 400 # legato 0.16,
+                whenmod 8 4 (# crush (slow 4 "8 6 5 4"))  $ whenmod 8 7 (chunk 2 (hurry 2)) $ sometimes (# speed "2 -2") $ degradeBy "<0.2 0.4>" $ fast "2 4" $ s "sn3*4" # n "4 5 6" # orbit 7 # gain 0.55 # hpf 600 # room 0.2 # speed "1 <2 0.7 -2>" # legato 0.3 # ctf 6000,
+                s "{pc2~~~~~~}%8" # n 10 # gain 0.47 # orbit 7 # room 0.2 # hpf 400,
+                sometimesBy 0.3 (stutWith 2 (0.052) (|* gain "[0.5|0.6]")) $ s "[~hts]*4" # n 3 # legato 0.25 # hpf 3000 # orbit 8 # gain 0.55 # speed 0.7,
+                s "hts*16" # n 3 # orbit 8 # room 0.1 # gain 0.42 |* gain "[0.8 0.9 1 0.9]*4",
+                slow 8 $ s "cym" # orbit 8 # hpf 3000 # gain 0.4 # room 0.2
+            ]
+        ),
+        ("out",
+            stack [
+                -- s "kcks(4,4)" # n 1 # orbit 1 # gain 0.6 # hpf 300,
+                -- s "bs2(3,8)" # n 5 # orbit 2 # hpf 60 # gain 0.45,
+                -- whenmod 16 15 (fast "1 1 2 4") $ s "~sn3~sn3" # n 3 # room 0.2 # gain 0.53 # orbit 7 # hpf 400 # legato 0.16,
+                -- whenmod 8 4 (# crush (slow 4 "8 6 5 4"))  $ whenmod 8 7 (chunk 2 (hurry 2)) $ sometimes (# speed "2 -2") $ degradeBy "<0.2 0.4>" $ fast "2 4" $ s "sn3*4" # n "4 5 6" # orbit 7 # gain 0.55 # hpf 600 # room 0.2 # speed "1 <2 0.7 -2>" # legato 0.3 # ctf 6000,
+                -- s "{pc2~~~~~~}%8" # n 10 # gain 0.47 # orbit 7 # room 0.2 # hpf 400,
+                -- sometimesBy 0.3 (stutWith 2 (0.052) (|* gain "[0.5|0.6]")) $ s "[~hts]*4" # n 3 # legato 0.25 # hpf 3000 # orbit 8 # gain 0.55 # speed 0.7,
+                -- s "hts*16" # n 3 # orbit 8 # room 0.1 # gain 0.42 |* gain "[0.8 0.9 1 0.9]*4",
+                slow 4 $ s "cym" # orbit 8 # hpf 3000 # gain 0.4 # room 0.2
+            ]
+        )
+     ]
+in
+d1
+$ qtrigger 1
+-- $ ur 160 "marker a b b c a b2 b2 c out" pats []
+$ ur 48 "marker b2 out" pats []
+-- $ ur 16 "c out" pats []
+# cps (140/240)
+
+hush

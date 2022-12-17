@@ -363,13 +363,19 @@ a.hide()
 
 speed=0.5
 
+a.show()
+
+a.hide()
+
+hush()
+
 s0.initImage('http://localhost:8080/cover.jpg')
 src(s0)
   .layer(src(o0).scale(1.01).rotate(.005))
   .layer(
     src(s0)
-    .scale(() => 0.6+a.fft[0]*0.1)
-    .contrast(1)
+    .scale(() => 0.3+a.fft[0]*0.1)
+    .contrast(1.3)
     // .invert()
      // .colorama()
     // .hue([.6, .1, .9])
@@ -378,51 +384,57 @@ src(s0)
   )
 .out()
 
-a.show()
 
-hush()
+s0.initImage('http://localhost:8080/cover.jpg')
+src(s0)
+  .layer(src(o0).scale(1.02).rotate(.001))
+  .layer(
+    src(s0)
+    .scale(()=> 0.2 + a.fft[0]*.2)
+    .contrast(1.5)
+    // .luma(.05)
+     .kaleid([1,2,3,5])
+    .scrollX(.1, -.1)
+    .mask(shape(1,.3))
+    .rotate(.3, -.1)
+  )
+.out()
+
+
 
 s0.initImage('http://localhost:8080/cover.jpg')
 src(s0)
   .layer(src(o0).scale(1.02).rotate(.01))
   .layer(
     src(s0)
-    .scale(()=> 0.2 + a.fft[0]*.3)
-    .contrast(1)
-    // .luma(.05)
-     .kaleid(3)
-    .scrollX(.1, -.1)
-    .mask(shape(1,.3))
-    .rotate(.3, -.3)
-  )
-.out()
-
-src(s0)
-  .layer(src(o0).scale(1.02).rotate(.01))
-  .layer(
-    src(s0)
-    .scale(()=> 0.1 + a.fft[0]*.1)
-    .contrast(1)
-    .luma(.01)
-    // .kaleid(3)
-    .rotate(.3, -.3)
-  )
-.out()
-
-
-src(s0)
-  .layer(src(o0).scale(1.02).rotate(.01))
-  .layer(
-    src(s0)
     .scale(()=> 0.5 + a.fft[0]*.3)
     // .hue([.01, .05, .2])
-    .contrast([1.5, 3])
-    .luma(.05)
+    .contrast([1.3, 3])
+    // .luma(.05)
     // .kaleid(3)
     .scrollX(.1, .2)
     .scale([.2, .5, .3, .7])
-    .rotate(0, -.1)
+    .rotate(0, [-.1, -.3, -.7])
   )
 .out()
 
-hush
+hush()
+
+a.show()
+
+s0.initImage('http://localhost:8080/tv.png')
+src(s0)
+  .layer(src(o0).scrollY(.0001).rotate(.001).scale(1.001).contrast(1.2))
+  .layer(
+    src(s0).contrast(3)
+    .scale(() => 0.7 + a.fft[0]*.01)
+    // .luma(.01)
+    // .rotate(.1, -.2)
+    // .kaleid([2,3,1])
+    .mask(shape(3, .5, 0).scrollX(.1, -.02).scrollY(.1, -.1))
+    .color(0,1,0)
+    // .g()
+    // .r()
+    // .invert()
+  )
+.out()

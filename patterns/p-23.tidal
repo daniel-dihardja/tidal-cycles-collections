@@ -17,7 +17,7 @@ $ stack [
 
 hush
 
-d2 silence
+d2
 $ stack[
   s "gc1*<16 32 0>" # n "1 2 3 4 5 6 7 8 9" # hpf 400 # gain 1.2 # room 0.2
 ]

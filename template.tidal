@@ -15,3 +15,45 @@ $ stack[
   -- s "drl" # orbit 9
 ]
 # cps(140/240)
+
+
+
+--
+
+-- kick
+d2 $ s "k3"
+
+-- bass
+d3 $ s "bl"
+
+-- drum
+d4 $ chop 16 $ s "dl" # begin 0 # end 0.25 # hpf 30
+
+-- glitch
+d5 $ chop 16 $ s "gl" # begin 0 # end 0.25 # hpf 30
+
+-- roombeat
+
+d6 $ loopAt 2 $ s "rbt" # hpf 30
+
+-- fx
+d7 $ loopAt 2 $ s "fxm" # n "<1 2>" # orbit 6,
+
+-- snares
+d8 $ stack [
+    s "~sn3~sn3" # hpf 30,
+    s "{pc2~~~~~~}%8" # hpf 100
+]
+
+-- hats
+d9 $ stack [
+    s "hts*16" # hpf 300,
+    s "[~hts]*4" # hpf 300,
+    slow 4 $ s "cym"
+]
+
+-- drones
+d10 $ s "drl"
+
+
+hush

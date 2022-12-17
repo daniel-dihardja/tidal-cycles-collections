@@ -12,7 +12,7 @@ $ stack[
     $ fast 4
     $ s "pc2" # n (irand 16 + 8) # hpf 550 # legato (range 0.2 1 rand) # room 0.3 # gain 1 # speed "0.5 1" # delay 0.2 # cut 11
 ]
-# cps(133/240)
+# cps(140/240)
 # orbit 1
 
 hush
@@ -30,7 +30,7 @@ $ stack[
   fast 2 $ s "~ sn3" # n 10 # hpf 400 # room 0.2 # gain 1,
   s "hts*16" # n 2 # hpf 5000 # gain 0.8 |* gain "[0.8 0.9 1 0.9]*4" # orbit 4
 ]
-# cps(133/240)
+# cps(140/240)
 # orbit 1
 
 hush

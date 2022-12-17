@@ -85,7 +85,7 @@ let pats =
                       whenmod 8 7 (fast 2.(#hpf "300 120")) $ s "kcks!3 [kcks kcks/2]" # n 1 # gain 0.6 # shape 0.2 # orbit 2 # hpf 300,
                       whenmod 16 15 (fast "2 4") $ s "[~sn3]*2" # n 15 # hpf 400 # room 0.2 # orbit 1 # gain 0.5 # speed 1,
                       s "bs2(3,8)" # n 111 # orbit 3 # hpf 60 # gain 0.4 # cut 678,
-                      whenmod 8 6 (chunk 2 (hurry 2)) $ whenmod 8 4 (# crush (slow 4 "8 6 4 4")) $ fast "2 4" $ chop 16 $ s "fx2*4" # n "<<4 7><9 8><3 7><11 12><16 18><20 19>>"  # legato "0.5" # cut 767 # speed "<1 <0.5 2>>" # hpf 800 # room 0.1 # orbit 1 # gain 0.65,
+                      whenmod 8 6 (chunk 2 (hurry 2)) $ whenmod 8 4 (# crush (slow 4 "8 6 4 4")) $ fast "2 4" $ chop 16 $ s "fx2*4" # n "<<4 7><9 8><3 7><11 12><16 18><20 19>>"  # legato "0.5" # cut 767 # speed "1 <0.7 0.5> 2" # hpf 800 # room 0.1 # orbit 1 # gain 0.65,
                       -- slow 2 $ s "dl" # n "3 <18 19>" # cut 777 # orbit 1 # hpf 1000 # room 0.2 # gain 0.7 # ctf 6000,
                       -- degradeBy 0.4 $ every 3 (# speed "-2") $ fast "2 4" $ s "pc2*2" # n (26 + irand 4) # speed 1 # legato "0.5 2" # hpf 600 # room 0.2 # orbit 1 # gain 0.8,
                       s "{fx2 ~ ~ ~ ~ ~ ~}%8" # n "12" # speed 1 # cut 223 # hpf 600 # room 0.2 # gain 0.7 # orbit 1,
